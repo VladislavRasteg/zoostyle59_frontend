@@ -1,0 +1,23 @@
+.tdb{
+    text-align: left;
+    padding: 16px 22px;
+}
+
+.trb{
+    border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+}
+
+.trb:hover{
+    background: rgba(67, 88, 117, 0.05);
+    transition: 300ms;
+    cursor: pointer;
+}
+.active{
+    background-color: #EDF3FC;
+}
+
+.active:hover{
+    background-color: #E8F1FF;
+    transition: 300ms;
+    cursor: pointer;
+}

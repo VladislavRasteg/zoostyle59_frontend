@@ -1,0 +1,195 @@
+@import "../../styles/variables/variables.scss";
+
+.table_buttons_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 22px;
+}
+.table_wrapper{
+    width: 100%;
+    height: 100%;
+    border: 1px solid $border_color;
+    background: $bg_white;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.table {
+    text-align: left;
+    overflow: auto;
+}
+
+.trh{
+    border-bottom: 1px solid $border_color;
+    font-weight: 500;
+}
+.tdh {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 22px;
+}
+
+.trb{
+    border-bottom: 1px solid $border_color;
+    padding: 16px 22px 16px 22px;
+}
+.tdb {
+    padding: 16px 22px;
+}
+.trb:hover{
+    background: $bg_island;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.custom_input_search{
+    position: relative;
+    min-width: 100%;
+}
+
+.custom_input_search input{
+    font-family: Inter;
+    font-size: 16px;
+    background: rgba(67, 88, 117, 0.05);
+    color: #899fb7;
+    height: 60px;
+    padding: 12px 48px;
+    border-radius: 12px 12px 0px 0px;
+    border: none;
+    color: #435875;
+    width: 100%;
+}
+
+.custom_input_search input:focus{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(67, 88, 117, 0.08);
+    background: #ffffff;
+}
+
+.custom_input_search svg{
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    width: 18px;
+    height: 18px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.dropdownItem{
+    padding: 10px 1rem;
+    margin: 8px;
+    width: calc(100% - 16px);
+    border-radius: 8px;
+}
+
+.dropdownItem:hover{
+    background: #EDF3FC;
+}
+
+.dropdownButton{
+    margin: 8px 1rem 8px 1rem;
+    width: calc(100% - 2rem);
+    height: 46px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: #FF813D;
+    transition: 300ms;
+    border: 1px solid #FF813D;
+    font-size: 16px;
+}
+
+.dropdownSecondaryButton{
+    margin: -2px 1rem 8px 1rem;
+    width: calc(100% - 2rem);
+    height: 46px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: #474747;
+    transition: 300ms;
+    border: 1px solid rgba(67, 88, 117, 0.26);
+    font-size: 16px;
+}
+
+.dropdownSecondaryButton:hover{
+    background: rgba(67, 88, 117, 0.14);
+}
+
+.dropdownLabel{
+    margin: 16px 1rem 0px 1rem;
+    width: calc(100% - 2rem);
+}
+
+.dropdownTextField{
+    margin: 8px 1rem 8px 1rem;
+    width: calc(100% - 2rem);
+}
+
+
+.dropdownButton:hover{
+    background: #FF813D;
+    border: 1px solid #FF813D;
+    color: #FFFFFF;
+    transition: 300ms;
+    font-size: 16px;
+}
+
+#css_custom .chips {
+    background: 'red';
+}
+#css_custom .multiselectContainer {
+    color: 'red';
+}
+#css_custom .searchBox {
+    border: 'none';
+    border-bottom: '1px solid blue';
+    border-radius: '0px';
+}
+
+.scheduleWrapper{
+    padding-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.scheduleRow{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeField{
+    align-items: center;
+    display: flex;
+    gap: 12px;
+}
+
+.timeGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field{
+    height: 42px;
+    background: #EDF3FC;
+    border-radius: 8px;
+}
+
+.inactive{
+    height: 42px;
+    background: #F5F6F8 !important;
+    border-radius: 8px;
+    border: 1px solid #4358752E;
+}

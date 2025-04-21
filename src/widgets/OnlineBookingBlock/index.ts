@@ -1,0 +1,1 @@
+export {OnlineBookingBlock} from "./ui/OnlineBookingBlock"

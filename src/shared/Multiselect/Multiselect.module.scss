@@ -1,0 +1,208 @@
+@import "../../styles/variables/variables.scss";
+
+.menu_wrapper{
+    position: fixed;
+    z-index: 999999;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.menu_bg{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.multiselectWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: $border_shadow;
+    border-radius: 14px;
+    position: relative;
+    transition: 300ms;
+
+    &:hover{
+        box-shadow: $border_shadow_hover;
+    }
+
+    &:active{
+        box-shadow: $border_shadow_hover;
+    }
+}
+.value{
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: $bg_island;
+    color: $text_primary;
+    width: fit-content;
+    min-width: fit-content;
+    align-items: center;
+}
+
+.deleteRow{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.delete{ 
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+
+    & path{
+        stroke: $icon_secondary;
+    }
+}
+
+.deleteRow:hover path{
+    transition: 300ms;
+}
+
+.deleteRow:hover path{
+    stroke: $text_primary;
+}
+
+
+
+.input{
+    background: transparent;
+    border: none;
+    padding: 0px;
+    padding-left: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.input_wrapper{
+    width: 100%;
+}
+
+.menu_container{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    z-index: 2;
+    max-height: 200px;
+}
+
+.heading{
+    display: none;
+}
+
+.menu_heading{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 300px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    z-index: 2;
+    background: #FFF;
+    box-shadow: $popover_shadow;
+    border-radius: 14px;
+}
+
+.menu{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    z-index: 999;
+}
+
+.menuItem{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 300ms;
+
+    &:hover{
+        background: $bg_island;
+        border-radius: 8px;
+     } 
+}
+
+.menuItem p{
+    margin: 0;
+}
+
+.secondaryDisplayValue{
+    padding: 0;
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 500px) {
+    .menuItem{
+        padding: 12px 8px;
+
+        &:hover{
+            background: none;
+        }
+    }
+
+    .multiselectWrapper{
+        padding: 14px;
+    }
+    .menu_container{
+        max-height: 500px;  
+    }
+    
+    .menu_wrapper{
+        background: rgba(9, 18, 27, 0.22);
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .input{
+        pointer-events: none;
+    }
+
+    .menu_heading{
+        position: relative;
+        top: unset !important;
+        bottom: 0;
+        left: 0 !important;
+        width: 100vw !important;
+        border-radius: 14px 14px 0px 0px;
+    }
+
+    .heading{
+        display: flex;
+        width: 100%;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 16px 0px 8px 20px;
+    }
+    
+    .menu{
+        padding: 0px 8px 12px 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        width: 100%;
+        z-index: 999;
+    }
+}

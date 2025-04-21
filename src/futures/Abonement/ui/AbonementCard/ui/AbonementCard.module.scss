@@ -1,0 +1,67 @@
+@import "../../../../../styles/variables/variables.scss";
+
+.abonement_card{
+    position: relative  ;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    background: $bg_island;
+}
+
+.name_status{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.status_chip{
+    font-size: 14px;
+    padding: 2px 8px;
+    border: 1px solid $bg_brand;
+    color: $bg_brand;
+    border-radius: 8px;
+    font-weight: 500;
+
+    &.inactive{
+        border: 1px solid $orange;
+        background: $orange;
+        color: $text_primary;
+    }
+
+    &.expired{
+        border: 1px solid $dangerous;
+        background: $dangerous;
+        color: #FFFFFF;
+    }
+
+    &.withdrawn{
+        border: 1px solid $dangerous;
+        background: $dangerous;
+        color: #FFFFFF;
+    }
+}
+
+.abonement_info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.name{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.info{
+    font-size: 14px;
+    line-height: 14px;
+}

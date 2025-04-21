@@ -1,0 +1,109 @@
+@import "../../../styles/variables/variables.scss";
+
+.active {
+    font-weight: 500;
+    background: $bg_accent;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.linkWrapper {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 200ms;
+    transition-timing-function: ease-in;
+}
+
+.linkWrapper:hover{
+    background: $bg_accent;
+    transition: 200ms;
+    transition-timing-function: ease-out;
+
+}
+
+.linkText {
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    color: #8D461F;
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.active .linkText{
+    
+    text-align: left;
+    font-size: 14px;
+    color: $text_primary;
+}
+
+.linkText svg{
+    width: 20px;
+    height: 20px;
+}
+
+.calendar_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-right: 8px;
+}
+
+.calendar_wrapper{
+    margin-left: -4px;
+    margin-bottom: -4px;
+}
+
+.employeeWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 16px;
+}
+
+.navbarSubPointsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.navbarSubPoint{
+    display: flex;
+    text-align: left;
+    font-size: 14px;
+    padding: 8px 12px;
+    background: #FDFDFF;
+    border: 1px solid transparent;
+    margin-right: 16px;
+    border-radius: 10px;
+    color: #435875;
+}
+
+.navbarSubPoint:hover{
+    color: $text_primary;
+    transition: 400ms;
+}
+
+.navbarSubPoint.activeLink{
+    color: $text_primary;
+    border: 1px solid $border_secondary;
+}
+
+@media screen and (max-width: 500px) {
+    .calendar_wrapper{
+        display: none;
+    }
+}

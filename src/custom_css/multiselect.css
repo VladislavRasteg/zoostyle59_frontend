@@ -1,0 +1,48 @@
+#css_custom .chip {
+    background: #FF813D;
+    margin-bottom: 5px;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+#css_custom .search-wrapper {
+    min-height: 42px;
+    border-radius: 8px;
+    background: rgb(237, 243, 252);
+    font-size: 16px;
+    padding: 10px 12px;
+}
+#css_custom .searchBox {
+    border: 'none';
+    border-bottom: '1px solid blue';
+    border-radius: '0px';
+    margin: 0px;
+    padding: 0px;
+}
+
+#css_custom .optionContainer{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#css_custom .highlight {
+    background: transparent;
+    color: #000000;
+}
+
+#css_custom .option{
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#css_custom .highlight:hover {
+    background: #EDF3FC;;
+    color: #000000;
+}
+
+#css_custom .option:hover {
+    background: #EDF3FC;;
+    color: #000000;
+}

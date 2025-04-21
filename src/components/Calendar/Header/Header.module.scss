@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    width: 100%;
+    min-height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 0 22px 0 72px;
+    border-bottom: 2px solid rgba(67, 88, 117, 0.08);
+}
+
+.date{
+    font-family: Inter;
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
+    color: #5E2A0D;
+}
+
+@media screen and (max-width: 500px) {
+    .header{
+        display: flex;
+        width: 100%;
+        min-height: 70px;
+        max-height: 70px;
+        background: #FDFDFF;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        padding: 0 22px 0 22px;
+        border-bottom: 2px solid rgba(67, 88, 117, 0.08);
+        position: fixed;
+        top: 70px;
+        z-index: 5;
+    }
+    .date{
+        font-family: Inter;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        color: #435875;
+    }
+}

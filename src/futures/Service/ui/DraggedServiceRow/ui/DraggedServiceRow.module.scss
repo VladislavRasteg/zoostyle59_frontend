@@ -1,0 +1,13 @@
+@import "../../../../../styles/variables/variables.scss";
+
+.draggedRow{
+    box-shadow: $popover_shadow;
+    border: 1px solid $border_color;
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: $bg_white;
+    width: fit-content;
+}

@@ -1,0 +1,27 @@
+@import "../../../styles/variables/variables.scss";
+
+.titled_block{
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    border-radius: 22px;
+    border: 1px solid $border_color;
+    gap: 22px;
+}
+
+.block_title{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.description{
+    font-size: 16px;
+    line-height: 100%;
+}

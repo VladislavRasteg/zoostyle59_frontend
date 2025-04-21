@@ -1,0 +1,1118 @@
+@import "../../styles/variables/variables.scss";
+
+.widget{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    background: #CECECE;
+    overflow: hidden;
+}
+
+.group_link{
+    display: flex;
+    padding: 10px 32px;
+    background: #FFFFFF;
+    width: fit-content;
+    border-radius: 22px;
+    text-decoration: none;
+    box-shadow: lch(0 0 0 / 0.02) 0px 4px 4px -1px, lch(0 0 0 / 0.06) 0px 1px 1px 0px;
+    transition: 400ms;
+    border: 1px solid transparent;
+
+    &:hover{
+        border: 1px solid $border_color;
+        box-shadow: lch(0 0 0 / 0.02) 0px 8px 8px -1px, lch(0 0 0 / 0.06) 0px 3px 3px 0px;
+    }
+}
+
+.group_name{
+    width: fit-content;
+    font-weight: 500;
+}
+
+.widget_wrapper{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+    padding: 0;
+}
+
+.group_info{
+    padding-bottom: 8px;
+}
+
+.group_wrapper{
+    padding-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.group_selector{
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.widget_scroll {
+    height: 100%;
+    margin-top: -22px;
+}
+
+.widget_wrapper_light{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 600px;
+    height: 100%;
+    background: #FFFFFF;
+    padding: 0;
+    justify-content: space-between;
+}
+
+
+.zoostyleFootnoteWrapper{
+    width: 100%;
+    padding-top: 32px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.zoostyleFootnote{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #B0B0B0;
+}
+
+.widgetContent{
+    padding: 12px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+}
+
+.summaryWidgetContent{
+    padding: 12px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+}
+
+.branchSwitcherNoBanner {
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    transition: 300ms;
+    width: 100%;
+    padding-inline: 32px;
+    padding-top: 12px;
+}
+
+.branchSwitcher{
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    transition: 300ms;
+    width: 100%;
+    aspect-ratio: 2.5/1;
+}
+.banner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+}
+.logo {
+    width: 110px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 12px;
+    bottom: 32px;
+    left: 32px;
+}
+.logoNoBanner {
+    width: 110px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.summaryBranchSwitcher{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 22px;
+    align-items: center;
+    border-radius: 0px 0px 22px 22px;
+    text-align: left;
+    cursor: pointer;
+    transition: 300ms;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.03), 0px 18px 18px 0px rgba(0, 0, 0, 0.03), 0px 41px 24px 0px rgba(0, 0, 0, 0.02), 0px 72px 29px 0px rgba(0, 0, 0, 0.00), 0px 113px 32px 0px rgba(0, 0, 0, 0.00);
+}
+
+.branchInfo{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    max-width: 80%;
+    z-index: 999;
+}
+
+.branchAddress{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #595959;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.branchName{
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    line-height: 120%;
+    font-size: 24px;
+    color: #172034;
+}
+
+.summaryBranchName{
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    line-height: 120%;
+    font-size: 22px;
+    color: #172034;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.branchListName{
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 22px;
+    color: #172034;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tenantName{
+    padding: 0;
+    margin: 0;
+    font-weight: 500;   
+    font-size: 24px;
+    color: #172034;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.branchList{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    height: 100%;
+}
+
+.servicesList{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    height: 100%;
+    padding-bottom: 200px;
+}
+
+.summaryList{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.summaryListShirt{
+}
+
+.servicesListShorter{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.branch{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: 300ms;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0);
+    padding: 0px 0px 12px 0px;
+    background: #FFFFFF;
+}
+
+.branch:hover{
+    border: 1px solid rgba(0,0,0,0.16);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.branchDescription{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 12px;
+    transition: 300ms;
+}
+
+.mapWrapper{
+    border-radius: 12px;
+    overflow: hidden;
+    height: 240px;
+}
+
+.map_image{
+    width: 100%;
+    height: auto;
+}
+
+.text{
+    padding: 0;
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    overflow: hidden;
+}
+
+.service{
+    cursor: pointer;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    border-radius: 22px;
+    border: 1px solid rgba(0,0,0,0);
+    background: #FFFFFF;
+    align-items: center;
+    transition: 300ms;
+}
+
+.service:hover{
+    border: 1px solid rgba(0,0,0,0.16);
+}
+
+.serviceName{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #172034;
+    font-weight: 500;
+    text-wrap: wrap;
+    line-height: 120%;
+}
+
+.serviceDuration{
+    font-size: 17px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.serviceNameSmall{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #172034;
+    font-weight: 500;
+    text-wrap: wrap;
+    line-height: 120%;
+}
+
+.serviceDurationSmall{
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.summaryServiceWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.summaryServicePrice{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #172034;
+    font-weight: 500;
+    text-wrap: wrap;
+    line-height: 120%;
+}
+
+.summaryServiceName{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #172034;
+    font-weight: 500;
+    text-wrap: wrap;
+    line-height: 120%;
+}
+
+.summaryServiceDuration{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #172034;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.summaryHeading{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #172034;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.summaryTotalWrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    padding-top: 12px;
+    margin: 0;
+}
+
+.summaryTotalWrapper p{
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    color: #172034;
+    font-weight: 500;
+}
+
+.detailsList{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.summaryServices{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.summaryDetail{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px;
+    border-radius: 22px;
+    background: #F5F6F8;
+    width: 100%;
+}
+
+.summaryDetailLight{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px;
+    border-radius: 22px;
+    background: #FFFFFF;
+    width: 100%;
+}
+
+.summaryClientDataWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 22px;
+    background: transparent;
+    overflow: visible;
+    width: 100%;
+}
+
+.servicePrice{
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+    color: #172034;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.selectedService{
+    border: 1px solid #FF813D;
+}
+
+.selectedService:hover{
+    border: 1px solid #FF813D;
+}
+
+.serviceContent{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.serviceContentWithDot{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.serviceSelectButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #F5F5F5;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    transition: 300ms;
+}
+
+.iconWrapper{
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.serviceSelectedIcon{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    transition: 300ms;
+}
+
+.servicePlusIcon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    transition: 300ms;
+}
+
+
+.selectedService .serviceSelectButton{
+    background: #FF813D;
+}
+
+.selectedService .serviceSelectButton .servicePlusIcon{
+    top: -100%;
+}
+
+.selectedService .serviceSelectButton .serviceSelectedIcon{
+    top: 0%;
+}
+
+.selectedServices{
+    position: fixed;
+    bottom: 0;
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px 30px 22px 30px;
+    border-radius: 22px 22px 0px 0px;
+    background: #FFFFFF;
+    z-index: 10;
+    width: 100%;
+    max-width: 600px;
+    display: none;
+    box-shadow: none;
+    transition: 300ms;
+}
+.showSelectedServices{
+    display: flex;
+    box-shadow: 0px -6px 13px 0px rgba(0, 0, 0, 0.03), 0px -24px 24px 0px rgba(0, 0, 0, 0.03), 0px -55px 33px 0px rgba(0, 0, 0, 0.02), 0px -97px 39px 0px rgba(0, 0, 0, 0.00), 0px -152px 42px 0px rgba(0, 0, 0, 0.00);
+}
+.selectedServicesInfo{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.selectedServicesInfo p{
+    padding: 0;
+    margin: 0;
+}
+
+.selectedServicesInfo span{
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.nextStepButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0px;
+    background: #FF813D;
+    color: #FFFFFF;
+    font-size: 18px; 
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 300ms;
+    border: 1px solid #FF813D;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.nextStepButton:hover{
+    color: #FFFFFF;
+    background: #006cdf;
+}
+
+.disabledService{
+    opacity: 0.5;
+    cursor:not-allowed;
+}
+
+.disabledService .serviceName{
+    opacity: 0.8;
+}
+
+.disabledService:hover{
+    border: 1px solid rgba(0,0,0,0);
+}
+
+.calendarIcon{
+    width: 28px;
+    height: 28px;
+}
+
+.section_name{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.back_arrow{
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    opacity: 0.6;
+    border: 1px solid rgba(0,0,0,0);
+    transition: 300ms;
+}
+
+.back_arrow svg{
+    width: 24px;
+    height: 24px;
+}
+
+.back_arrow:hover{
+    opacity: 1;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.employee{
+    cursor: pointer;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 22px;
+    border: 1px solid rgba(0,0,0,0);
+    background: #FFFFFF;
+    transition: 300ms;
+}
+
+.employeeServices{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 22px;
+    border: 1px solid rgba(0,0,0,0);
+    background: #FFFFFF;
+}
+
+.employee:hover{
+    border: 1px solid rgba(0,0,0,0.16);
+}
+
+.employeeImageContent{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    width: 100%;
+}
+
+.employeeImageContentSecondary{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.employeeImage{
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    min-height: 48px;
+    min-width: 48px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    justify-content: center;
+    color: #434955;
+    background: linear-gradient(135deg, #AECAFA 0%, #DBE8FD 100%);
+}
+
+.employeeContent{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.employeePosition{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #172034;
+    font-weight: 500;
+    opacity: 0.6;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.employeeNearestDate{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #172034;
+    font-weight: 400;
+}
+
+.employeeName{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #172034;
+    font-weight: 500;
+    text-wrap: wrap;
+    line-height: 120%;
+}
+
+.employeeName::first-letter {
+    text-transform: uppercase;
+  }
+
+.employeeNearestDate span{
+    font-weight: 500;
+}
+
+.timeList{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 22px;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.dayTimeList{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0px 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+.timeTypeWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+}
+
+.timeType{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #172034;
+    font-weight: 500;
+    text-wrap: wrap;
+    line-height: 120%;
+}
+
+.timeString{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+}
+
+.recordTimeButton{
+    display: flex;
+    min-width: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #172034;
+    transition: 300ms;
+}
+
+.recordTimeButton:hover {
+    color: #172034;
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.16);
+}
+
+.month::first-letter {
+    text-transform:capitalize;
+}
+
+.weekSwitcherWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weekSwitcher{
+    display: flex;
+    gap: 8px;
+}
+
+.month{
+    padding: 0;
+    padding-left: 12px;
+    margin: 0;
+    font-size: 16px;
+    color: #172034;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.dateTimeBlock{
+    width: 100%;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+.daysWrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.daysOfWeekList{
+    display: flex;
+    width: 100%;
+    gap: 22px;
+}
+
+.dayOfWeek{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+.daysList{
+    display: flex;
+    width: 100%;
+    gap: 22px;
+}
+
+.dayNumber{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    aspect-ratio: 1;
+}
+
+.active:hover{
+    background: #EDF3FC;
+    cursor: pointer;
+}
+
+.inactive{
+   opacity: 0.6;
+   cursor: default;
+}
+
+.inactiveArrow{
+    opacity: 0.4;
+    cursor: default;
+}
+
+.inactiveArrow:hover{
+    background: none !important;
+}
+
+.weekSwitcherButtonWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 6px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.weekSwitcherButtonWrapper:hover{
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.weekSwitcherButton{
+    width: 16px;
+    height: 16px;
+}
+
+.selectedDay{
+    background: #FF813D;
+    color: #FFFFFF;
+}
+
+.selectedDay:hover{
+    background: #FF813D;
+    color: #FFFFFF;
+}
+
+.summaryInput{
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    background: none;
+    padding: 14px;
+    transition: 300ms;
+}
+
+.summaryInput:active{
+    border: 1px solid #FF813D;
+    background: none !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none;
+}
+
+.summaryInput:focus{
+    border: 1px solid #FF813D;
+    background: none !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+    box-shadow: none;
+}
+
+.fieldGroup{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fieldName{
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    color: #172034;
+}
+
+.successBlock{
+    width: 100%;
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.successBlockWrapper{
+    width: 100%;
+    gap: 12px;
+    background: #FFFFFF;
+    padding: 22px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.successText{
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.successButton{
+    width: 100%;
+    height: 54px;
+    background: rgba(45, 206, 138, 0.12);
+    border: 1px solid #2DCE8A;
+    border-radius: 12px;
+    transition: 300ms;
+}
+
+.successButton:hover{
+    background: rgba(45, 206, 138, 1);
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 500px) {
+
+    .mapWrapper{
+        height: auto;
+    }
+
+    .widget{
+        display: flex;
+        width: 100vw;
+        height: 100dvh;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        background: #CECECE;
+    }
+    
+    .widget_wrapper{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        max-width: 600px;
+        width: 100%;
+        height: 100dvh;
+        background: #F5F5F5;
+        padding: 0px;
+        justify-content: space-between;
+    }
+
+    .branchInfo{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        max-width: 80%;
+        z-index: 999;
+    }
+
+    .widget_wrapper_light{
+        height: 100dvh;
+    }
+
+    .widgetContent{
+        padding: 12px 22px;
+    }
+
+    .zoostyleFootnoteWrapper{
+        display: none;
+    }
+    
+    .summaryList{
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        max-height: calc(100dvh - 112px)
+    }
+    
+    .summaryListShirt{
+        max-height: calc(100dvh - 100px - 30px - 40px - 40px)
+    }
+    
+    .servicesListShorter{
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .summaryWidgetContent{
+        padding: 12px 32px;
+    }
+
+    .daysList{
+        gap: 2px;
+    }
+
+    .daysOfWeekList{
+        gap: 2px;
+    }
+}

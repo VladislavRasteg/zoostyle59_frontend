@@ -1,0 +1,32 @@
+.toggleSwitch{
+    height: 26px;
+    width: 46px;
+    min-width: 46px;
+    background-color: rgba(67, 88, 117, 0.22);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    transition: 400ms;
+    cursor: pointer;
+}
+
+.toggleCircle{
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: #fff;
+    margin-left: 0px;
+    transition: 300ms;
+}
+
+.active .toggleCircle{
+    margin-left: 20px;
+    transition: 300ms;
+}
+
+.active{
+    background: #FF813D;
+    transition: 400ms;
+}
+

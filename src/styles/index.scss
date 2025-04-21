@@ -1,0 +1,32 @@
+@import "./reset.scss";
+@import "./fonts/fonts.scss";
+@import "./variables/variables.scss";
+@import "bootstrap";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #F9FBFF;
+  
+  color: $text_primary
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.recharts-wrapper .recharts-cartesian-grid-vertical line:nth-last-child(1),
+.recharts-wrapper .recharts-cartesian-grid-vertical line:nth-last-child(2) {
+      stroke-opacity: 0;
+}

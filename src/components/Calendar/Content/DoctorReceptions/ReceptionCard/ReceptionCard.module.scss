@@ -1,0 +1,54 @@
+.reception{
+    height: 100%;
+    border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+    margin-bottom: 8px;
+}
+
+.reception_filled{
+    border-radius: 6px;
+    background-color: #EDF3FC;
+    border: 1.4px solid rgba(0, 117, 255, 0.4);
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+}
+
+.reception_body{
+    padding: 8px;
+    font-family: Inter;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 120%;
+}
+
+
+.reception_time{
+    opacity: 0.7;
+    font-weight: 500;
+    min-width: fit-content;
+}
+
+.reception_body_small{
+    font-family: Inter;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    padding-left: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .popover{
+        display: none !important;
+    }
+}

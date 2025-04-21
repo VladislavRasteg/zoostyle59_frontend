@@ -1,0 +1,42 @@
+.reports_layout{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.report_header{
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.report_name{
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.report_period{
+    display: flex;
+    gap: 22px;
+}
+
+.input_wrapper{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 8px 8px 16px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid var(--border_primary);
+}
+
+.input_title{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}

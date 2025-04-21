@@ -1,0 +1,41 @@
+$text_primary: #552C16;
+$text_secondary: #8D461F;
+$text_invert: #FFFFFF;
+$border_color: #E5E7EE;
+$border_secondary: #bdbfc6;
+$border_brand: #FF813D;
+$border_shadow: inset 0 0 0 1px #a5b1ca4d;
+$border_shadow_hover: inset 0 0 0 1px #8694b066;
+$icon_secondary: #A6A8B2;
+$popover_shadow: 0px 0px 3px rgba(165, 177, 202, .3), 0px 10px 40px rgba(165, 177, 202, .3);
+$red: #CB2B1D;
+$orange: #f8ba00;
+$dangerous: #cb1d51;
+$bg_island: #FBF4ED;
+$bg_primary: #FFFFFF;
+$bg_island_low_contrast: #FFF8F0;
+$bg_white: #FFFFFF;
+$bg_main: #F9FBFF;
+$bg_brand: #FF813D;
+$bg_accent: #FFE9D0;
+$bg_dangerous: #FCE9EF;
+
+    
+:root{
+    --background_island: #F5F6F8;
+    --icon_contrat: #56667D;
+    --border_primary: rgba(67, 88, 117, 0.1);
+    --border_secondary: rgba(67, 88, 117, 0.18);
+    --text_secondary: #757575;
+    --text_placeholder: #8E9EB5;
+    --brand-color: #FF813D;
+    --input_bg: #EDF3FC;
+    --default_field_with: 360px;
+
+    --chart_bg: #FDFDFF;
+    --chart_positive: #16c784;
+    --chart_negative: #F44370;
+    --chart_color_primary: #5EABF2;
+    --chart_color_secondary: #9C6CF3;
+    --chart_secondary_color: #708097;
+}

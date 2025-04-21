@@ -1,0 +1,28 @@
+@import '../../../styles/variables/variables.scss';
+
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 22px;
+    padding: 26px;
+    gap: 4px;
+    .message {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .hint {
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+.info {
+    background: #F6FBFF;
+    outline: 2px solid $border_brand;
+}
+
+.warning {
+    background: #FFF8E3;
+    outline: 2px solid #FFBF00;
+}
+

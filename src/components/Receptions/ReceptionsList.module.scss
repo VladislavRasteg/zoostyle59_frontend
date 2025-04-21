@@ -1,0 +1,140 @@
+@import "../../styles/variables/variables.scss";
+
+.table_buttons_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 22px;
+}
+.table_wrapper{
+    width: 100%;
+    height: 100%;
+    border: 1px solid $border_color;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background: $bg_white;
+}
+
+.table {
+    text-align: left;
+    overflow: auto;
+}
+
+.trh{
+    border-bottom: 1px solid $border_color;
+    font-weight: 500;
+}
+.tdh {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 22px;
+}
+
+.searchResultsList{
+    opacity: 100;
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 0;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid $border_color;
+    border-radius: 8px;
+    padding: 4px;
+    background: #FFFFFF;
+    z-index: 999;
+    width: 96%;
+    margin-left: 2%;
+    box-shadow: 0 74px 44px rgba(0, 0, 0, 0.02), 0 33px 33px rgba(0, 0, 0, 0.03), 0 8px 18px rgba(0, 0, 0, 0.03), 0 0 0 rgba(0, 0, 0, 0.03);
+    transition: 400ms;
+}
+
+.searchResultsList a{
+    text-decoration: none;
+}
+
+.searchResult{
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.searchResult:hover {
+    background: rgba(67, 88, 117, 0.05);
+}
+
+.searchResultsList h2 {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 14px;
+    color: #435875;
+    margin: 0 0 2px 0;
+}
+
+.searchResultsList h3 {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    color: #899fb7;
+    margin: 0;
+}
+
+.invisible{
+    opacity: 0;
+    height: 0;
+}
+
+.divider{
+    height: 1px;
+    margin: 0 12px;
+    background: rgba(67, 88, 117, 0.12);
+}
+
+.divider:last-child{
+    display: none;
+}
+
+.input_and_button{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(67, 88, 117, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(67, 88, 117, 0.22);
+}
+
+.buttonsWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.buttonsGroup{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.fieldsRow{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.longDash{
+    display: flex;
+    height: 1px;
+    width: 32px;
+    border-radius: 1px;
+    background: #212529;
+}

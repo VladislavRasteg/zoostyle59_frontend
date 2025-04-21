@@ -1,0 +1,82 @@
+@import "../../../../styles/variables/variables.scss";
+
+.doctor_receptions{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    max-height: calc(100vh - 224px);
+    position: relative;
+}
+
+.reception{
+    color: #FF813D;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    height: 100%;
+    border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.receptionInactive{
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: rgba(67, 88, 117, 0.08);
+    border-bottom: 1px solid #F9FBFF;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.reception:hover{
+    background: $bg_island !important;
+    content: 'Новая запись';
+}
+
+.reception:hover:after{
+    content: 'Новая запись';
+}
+
+.empty_reception{
+    height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+
+    .doctor_receptions{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 240px;
+        text-align: left;
+        max-height: unset;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .reception{
+        color: #FF813D;
+        padding-left: 12px;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        min-height: 15px;
+        border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .receptionInactive{
+        min-height: 15px;
+    }
+}

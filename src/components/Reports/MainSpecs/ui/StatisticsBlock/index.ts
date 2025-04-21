@@ -1,0 +1,1 @@
+export { StatisticsBlock } from './ui/StatisticsBlock';

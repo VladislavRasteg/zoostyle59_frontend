@@ -1,0 +1,1 @@
+export { MainSpecs } from './ui/MainSpecs';

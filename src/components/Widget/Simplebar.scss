@@ -1,0 +1,9 @@
+.simplebar-content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.simplebar-content-wrapper{
+    scroll-behavior: smooth;
+}

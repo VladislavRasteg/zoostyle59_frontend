@@ -1,0 +1,32 @@
+@import "../../../styles/variables/variables.scss";
+
+.datepicker_wrapper{
+    position: relative;
+    width: 100%;
+}
+
+.icon{
+    position: absolute;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    top: 11px;
+    bottom: auto;
+    color: $icon_secondary;
+}
+
+@media screen and (max-width: 500px) {
+    .datepicker_wrapper input{
+        padding: 14px;
+    }
+
+    .icon{
+        position: absolute;
+        right: 12px;
+        width: 24px;
+        height: 24px;
+        top: 14px;
+        bottom: auto;
+        color: $icon_secondary;
+    }
+}

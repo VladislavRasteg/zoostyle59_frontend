@@ -1,0 +1,41 @@
+@import "../../../styles/variables/variables.scss";
+
+
+.PhoneInputCountryIcon--border{
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon--border{
+    box-shadow: none !important;
+}
+
+.PhoneInputCountrySelectArrow{
+    color: #000000;
+}
+
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow{
+    color: #000000;
+}
+
+.PhoneInput{
+    font-size: 16px;
+    border: 1px solid $border_color;
+    height: 46px;
+    padding-left: 8px;
+    border-radius: 14px;
+
+    & input{
+        border: none;
+        stroke: none;
+        outline: none;
+        background: transparent;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .PhoneInput{
+        height: 52px;
+    }
+}

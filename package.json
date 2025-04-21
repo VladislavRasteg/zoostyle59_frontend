@@ -1,0 +1,103 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@arco-design/web-react": "latest",
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@k-renwick/colour-mixer": "^1.2.1",
+    "@mui/material": "^5.13.6",
+    "@pbe/react-yandex-maps": "^1.2.4",
+    "@rsbuild/plugin-sass": "^0.7.9",
+    "@rsbuild/plugin-svgr": "^0.7.9",
+    "@tanstack/react-table": "^8.20.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.32",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-input-mask": "^3.0.2",
+    "@types/react-phone-number-input": "^3.0.14",
+    "air-datepicker": "^3.3.5",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.2",
+    "color-blending": "^1.0.1",
+    "crypto-js": "^4.2.0",
+    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.12",
+    "framer-motion": "^10.12.16",
+    "just-mix": "^0.3.3",
+    "jwt-decode": "^3.1.2",
+    "mix-colors": "^0.0.1",
+    "mix-colors-palette": "^1.0.1",
+    "mobx": "^6.9.0",
+    "mobx-react-lite": "^3.4.3",
+    "moment": "^2.30.1",
+    "multiselect-react-dropdown": "^2.0.25",
+    "primereact": "^9.5.0",
+    "react": "^18.2.0",
+    "react-animate-height": "^3.2.3",
+    "react-bootstrap": "^2.7.4",
+    "react-calendar": "^4.3.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^4.25.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "react-intl": "^6.7.0",
+    "react-onclickoutside": "^6.13.1",
+    "react-phone-number-input": "^3.4.3",
+    "react-router-dom": "^6.11.2",
+    "react-scrollbars-custom": "^4.1.1",
+    "react-toastify": "^10.0.5",
+    "react-widgets": "^5.8.4",
+    "react-yandex-metrika": "^2.6.0",
+    "recharts": "^2.12.4",
+    "simplebar-react": "^3.2.4",
+    "swiper": "^11.1.7",
+    "typescript": "^4.9.5",
+    "uniqolor": "^1.1.0",
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "rsbuild dev",
+    "dev": "rsbuild dev",
+    "build": "rsbuild build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@rsbuild/core": "^0.7.9",
+    "@rsbuild/plugin-react": "^0.7.9",
+    "sass": "^1.72.0",
+    "sass-loader": "^14.1.1",
+    "webpack": "^5.91.0"
+  }
+}

@@ -1,0 +1,71 @@
+.modal_body{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: start;
+}
+
+.section_card{
+    display: flex;
+    padding: 22px;
+    border-radius: 16px;
+    background: var(--background_island);
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.section_card:hover{
+    border: 1px solid var(--border_secondary);
+}
+
+.section_card_drop_icon_wrapper{
+    display: flex;
+    width: 24px;
+    min-width: 24px;
+    justify-content: flex-end;
+    margin-left: 12px;
+    transition: 400ms;
+}
+
+.section_card_drop_icon_wrapper svg{
+    transition: 400ms;
+}
+
+.section_card:hover .section_card_drop_icon_wrapper svg{
+    transform: scale(1.2);
+}
+
+.section_card.opened .section_card_drop_icon_wrapper svg{
+    transform: rotate(180deg);
+}
+
+.section_card_heading{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.section_card_heading p{
+    font-size: 18px;
+}
+
+.section_card_heading svg{
+    height: 24px;
+    width: auto;
+    color: var(--icon_contrat);
+}
+
+.section_permissions{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 22px;
+}
+
+.section_permissions.opened{
+    height: fit-content;
+}

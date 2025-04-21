@@ -1,0 +1,105 @@
+@import '../../styles/variables/variables.scss';
+
+.vertical_container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.main_container {
+  padding-bottom: 40px;
+}
+
+.horizontal_container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.employeesCountPicker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  .employeesCountButton {
+    border: none;
+    text-wrap: nowrap;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}
+
+.periodPicker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  .periodButton {
+    border: none;
+    text-wrap: nowrap;
+    padding: 16px;
+    background: #f2f3f8;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background 0.3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      background: #e7e8ed;
+    }
+    & .label {
+      font-weight: 500;
+      font-size: 22px;
+    }
+    & .hint {
+      font-size: 18px;
+      color: #4a4a50;
+    }
+    &.checked {
+      outline: 2px solid $border_brand;
+    }
+  }
+}
+
+.table_wrapper{
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(67, 88, 117, 0.08);
+  border-radius: 12px;
+  background: #FDFDFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: $bg_white;
+}
+.table {
+  text-align: left;
+  overflow: auto;
+  width: 100%;
+}
+.trh{
+  border-bottom: 2px solid rgba(67, 88, 117, 0.08);
+  font-weight: 500;
+}
+.tdh {
+  padding: 16px 22px;
+}
+.trb{
+  border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+  padding: 16px 22px 16px 22px;
+}
+.tdb {
+  padding: 16px 22px;
+}
+.trb:hover{
+  background: rgba(67, 88, 117, 0.05);
+  transition: 300ms;
+  cursor: pointer;
+}

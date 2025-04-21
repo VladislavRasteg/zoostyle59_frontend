@@ -1,0 +1,121 @@
+@import "./variables/variables.scss";
+
+input,
+button,
+textarea,
+select {
+    margin: 0;
+    font: inherit;
+}
+
+fieldset{
+    border: none !important;
+    outline: none !important;
+}
+
+.react-datepicker-wrapper{
+    width: 100%;
+}
+
+.react-datepicker__input-container input{
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    stroke: none;
+    box-shadow: $border_shadow;
+    transition: 300ms;
+
+    &:hover{
+        box-shadow: $border_shadow_hover;
+    }
+
+    &:active{
+        box-shadow: $border_shadow_hover;
+    }
+}
+
+.react-datepicker{
+    border: none;
+    font-family: 'Inter', 'Roboto', 'Oxygen';
+    border-radius: 14px;
+    box-shadow: $popover_shadow;
+    padding: 12px;
+}
+
+.react-datepicker__header{
+    background: transparent;
+    padding: 0px;
+    border: none;
+}
+
+.react-datepicker__current-month{
+    font-size: 16px;
+    padding: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.react-datepicker__navigation{
+    width: 45px;
+    height: 45px;
+    top: 14px;
+}
+
+.react-datepicker__triangle{
+    display: none;
+}
+
+.react-datepicker__navigation-icon{
+    top: 2px;
+}
+
+.react-datepicker__day-name{
+    text-transform: capitalize;
+    font-size: 14px;
+    line-height: 32px;
+    font-weight: 500;
+    width: 32px;
+    height: 32px;
+    color: $text_secondary;
+}
+
+.react-datepicker__day{
+    font-size: 14px;
+    line-height: 32px;
+    font-weight: 400;
+    width: 32px;
+    height: 32px;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text_primary;
+    transition: 300ms;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.react-datepicker__day--selected{
+    background: #FF813D;
+    color: #FFFFFF !important;
+
+    &:hover{
+        background: #FF813D;
+    }
+}
+
+.react-datepicker__day--keyboard-selected{
+    background: rgba(0,0,0,0.1);
+
+    &:hover{
+        background: rgba(0,0,0,0.1)
+    }
+}
+
+.Mui-selected{
+    background: $bg_island !important;
+}

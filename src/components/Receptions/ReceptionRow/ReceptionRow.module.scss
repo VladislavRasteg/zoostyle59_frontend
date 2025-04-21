@@ -1,0 +1,25 @@
+@import "../../../styles/variables/variables.scss";
+
+.tdb{
+    text-align: left;
+    padding: 16px 22px;
+}
+
+.trb{
+    border-bottom: 1px solid $border_color;
+}
+
+.trb:hover{
+    background: $bg_island;
+    transition: 300ms;
+    cursor: pointer;
+}
+.active{
+    background-color: $bg_accent;
+}
+
+.active:hover{
+    background-color: $bg_accent;
+    transition: 300ms;
+    cursor: pointer;
+}

@@ -1,0 +1,120 @@
+@import "../../../styles/variables/variables.scss";
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 46px;
+    padding: 0px 32px;
+    border-radius: 8px;
+    width: fit-content;
+    border: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    transition: 300ms;
+}
+
+.big{
+    height: 54px;
+    padding: 18px 64px;
+}
+
+.small{
+    height: fit-content;
+    padding: 8px 22px;
+    box-shadow: lch(0 0 0 / 0.02) 0px 4px 4px -1px, lch(0 0 0 / 0.06) 0px 1px 1px 0px;
+}
+
+.disabled{
+    background: rgba(67, 88, 117, 0.05) !important;
+    color: #8E9EB5 !important;
+    border: none !important;
+}
+
+.iconOnly{
+    padding: 0;
+    width: 39px;
+    height: 39px;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+.ghost{
+    background: transparent;
+    color: #FF813D;
+}
+
+.primary{
+    background: #FF813D;
+    color: #FFFFFF;
+}
+
+.secondary{
+    background: transparent;
+    border: 1px solid #FF813D;
+    color: #FF813D;
+}
+
+.secondary:hover{
+    background: #FF813D;
+    color: #FFFFFF;
+
+    & svg {
+        fill: #FFFFFF;
+        transition: 300ms;
+        & path{
+            fill: #FFFFFF;
+            transition: 300ms;
+        }
+    }
+}
+
+.tetrinary{
+    background: #F2F3F8;
+    border: 1px solid rgba(67, 88, 117, 0.18);
+}
+
+.tetrinary:hover{
+    background: #e7e8ed;
+}
+
+.border{
+    background: none;
+    border: 1px solid rgba(67, 88, 117, 0.18);
+}
+
+.border:hover{
+    background: rgba(67, 88, 117, 0.08);
+}
+
+.dangerous{
+    background: transparent;
+    border: 1px solid $dangerous;
+    color: $dangerous;
+    transition: 300;
+
+    &:hover{
+        background: $dangerous;
+        color: #ffffff;
+        fill: #FFFFFF;
+
+        & svg {
+            fill: #FFFFFF;
+            transition: 300ms;
+            & path{
+                fill: #FFFFFF;
+                transition: 300ms;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .big{
+        padding: 18px;
+    }
+}

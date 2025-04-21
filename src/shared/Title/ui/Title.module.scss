@@ -1,0 +1,13 @@
+@import "../../../styles/variables/variables.scss";
+
+.title{
+    font-size: 14px;
+    color: $text_primary;
+    font-weight: 500;
+    text-align: start;
+}
+
+.required::after{
+    content: " *";
+    color: red;
+}

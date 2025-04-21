@@ -1,0 +1,306 @@
+@import "../../../../styles/variables/variables.scss";
+
+.modal_body {
+	display: flex;
+	gap: 22px;
+	width: 100%;
+}
+
+.client_appointments {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	height: 100%;
+	width: 100%;
+	padding: 16px;
+	border-radius: 14px;
+	border: 1px solid $border_color;
+}
+
+.appointment_wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+}
+
+.add_abonement_button{
+	margin-top: 12px;
+}
+
+.appointments_list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.appointment {
+	display: flex;
+	flex-direction: column;
+	gap: 0px;
+	width: 100%;
+	background: $bg_island;
+	padding: 12px;
+	border-radius: 14px;
+}
+
+.date_time {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.input_group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+
+	& input {
+		width: 100%;
+	}
+}
+
+
+.date_row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.time_row {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.time_divider {
+	width: 12px;
+	height: 1px;
+	background: $icon_secondary;
+}
+
+.input_button {
+	display: flex;
+	gap: 8px;
+}
+
+.add_client_button {
+	min-width: 46px;
+	font-size: 32px;
+	padding-bottom: 3px;
+	font-weight: 300;
+}
+
+.search_client {
+	position: relative;
+}
+
+.client_fields {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.confirmation_text {
+	font-size: 16px;
+	text-align: center;
+	text-wrap: balance;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 64px;
+}
+
+.search_results {
+	position: absolute;
+	z-index: 3;
+	top: 50px;
+	left: 0;
+	border-radius: 14px;
+	padding: 4px;
+	background: #FFFFFF;
+	box-shadow: $popover_shadow;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-height: 220px;
+	overflow-y: auto;
+}
+
+.search_result {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	padding: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 300ms;
+
+	&:hover {
+		background: $bg_island;
+	}
+}
+
+.outside_click_handler {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100vw;
+	height: 100vh;
+}
+
+.search_name {
+	font-size: 14px;
+}
+
+.search_additional_info {
+	display: flex;
+	gap: 8px;
+}
+
+.search_additional_info_group {
+	display: flex;
+	flex-direction: column;
+	margin-top: 4px;
+}
+
+.search_secondary {
+	opacity: 0.8;
+	font-size: 13px;
+}
+
+.client_block {
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+	border-radius: 14px;
+	background: $bg_island;
+
+	& .search_name, .search_secondary {
+		font-size: 16px;
+	}
+}
+
+.appointment_date {
+	font-size: 14px;
+}
+
+.services_total {
+	font-size: 13px;
+	opacity: 0.7;
+	font-weight: 500;
+}
+
+.position_add{
+	margin-top: 6px;
+}
+
+.dropdown{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background: transparent;
+	border: none;
+	border-radius: 14px;
+	box-shadow: $border_shadow;
+	color: $text_primary;
+	padding: 10px;
+
+	&:hover, :active, :focus{
+		color: $text_primary !important;
+		border: none !important;
+		background: transparent !important;
+		box-shadow: $border_shadow_hover !important;
+	}
+}
+
+.dropdownItem{
+	padding: 8px;
+	border-radius: 8px;
+	margin-bottom: 4px;
+}
+
+.dropdown_menu{
+	width: 100%;
+	padding: 12px;
+	border-radius: 14px;
+	box-shadow: $popover_shadow;
+	border: none;
+	margin-top: 8px;
+}
+
+.cancel_wrapper {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+.client_block_wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.checked_input{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+	.appointment_wrapper {
+		width: 100%;
+		min-width: unset;
+	}
+
+	.date_row {
+		flex-direction: column;
+	}
+
+	.time_row {
+		width: 100%;
+
+		& input {
+			width: 100%;
+		}
+
+		.time_divider {
+			min-width: 12px;
+		}
+	}
+}
+
+.switcher {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	padding: 6px;
+	border-radius: 14px;
+	border: none;
+	outline: none;
+	stroke: none;
+	box-shadow: $border_shadow;
+	width: 100%;
+}
+
+.switcher_element {
+	background: none;
+	border: none;
+	padding: 10px;
+	border-radius: 8px;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	transition: 400ms;
+	width: 100%;
+
+	&.active {
+		background: #FF813D;
+		color: #FFFFFF;
+	}
+}

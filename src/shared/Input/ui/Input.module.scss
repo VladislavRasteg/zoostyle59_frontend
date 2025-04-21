@@ -1,0 +1,42 @@
+@import "../../../styles/variables/variables.scss";
+
+.input{
+    -webkit-appearance: none;
+    background: transparent;
+    color: $text_primary;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    stroke: none;
+    box-shadow: $border_shadow;
+    transition: 300ms;
+
+    &:hover{
+        box-shadow: $border_shadow_hover;
+    }
+
+    &:active{
+        box-shadow: $border_shadow_hover;
+    }
+}
+
+.input[type="time"]{
+    padding-right: 8px;
+}
+
+.disabled{
+    opacity: 0.6;
+}
+
+.input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0.4;
+    transform: scale(1.15);
+}
+
+@media screen and (max-width: 500px) {
+    .input{
+        padding: 14px;
+    }
+}

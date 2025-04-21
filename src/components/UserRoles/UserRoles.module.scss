@@ -1,0 +1,48 @@
+@import "../../styles/variables/variables.scss";
+
+.table_buttons_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 22px;
+}
+.table_wrapper{
+    width: 100%;
+    height: 100%;
+    border: 1px solid $border_color;
+    border-radius: 12px;
+    background: $bg_white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.table {
+    text-align: left;
+    overflow: auto;
+}
+
+.trh{
+    border-bottom: 1px solid $border_color;
+    font-weight: 500;
+}
+.tdh {
+    padding: 16px 22px;
+}
+
+.trb{
+    border-bottom: 1px solid $border_color;
+    padding: 16px 22px 16px 22px;
+}
+.tdb {
+    padding: 16px 22px;
+}
+.trb:hover{
+    background: $bg_island;
+    transition: 300ms;
+    cursor: pointer;
+}

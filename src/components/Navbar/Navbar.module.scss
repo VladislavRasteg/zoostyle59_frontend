@@ -1,0 +1,433 @@
+@import "../../styles/variables/variables.scss";
+
+.navWrapper{
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.nav{
+    margin-top: 0;
+    max-width: 300px;
+    min-width: 300px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px 22px 22px;
+    gap:22px;
+    font-weight: 400;
+    justify-content: space-between;
+    background: $bg_island_low_contrast;
+}
+
+.dividing{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:22px;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+    gap: 4px;
+    flex-shrink: 1;
+}
+
+
+.user{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-content: left;
+    width: 134px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user p {
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    width: 134px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user_wrapper{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user_wrapper img{
+    height: 50px;
+    width: 50px;
+    border-radius: 12px;
+}
+
+.logout_icon{
+    width: 16px;
+    height: 16px;
+}
+
+.logout_button{
+    background: rgba(67, 88, 117, 0.05);
+    min-width: 40px;
+    height: 40px;
+    border: 1px solid rgba(67, 88, 117, 0.22);
+    border-radius: 8px;
+    margin-left: 12px;
+}
+
+.logout_button:hover{
+    background: rgba(67, 88, 117, 0.10);
+    transition: 300ms;
+}
+
+.branch_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid rgba(67, 88, 117, 0.12);
+    border-radius: 10px;
+    background: transparent;
+    transition: 400ms;
+    height: 70px;
+    max-height: 70px;
+    position: relative;
+    cursor: pointer;
+
+    &.active{
+        background: $bg_island;   
+    }
+
+    &:hover{
+        background: $bg_island;
+    }
+}
+
+.logo_name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    .logo {
+        width: 44px;
+        aspect-ratio: 1;
+        .image_logo {
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.branchName{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    word-break: break-word;
+    text-align: left;
+    line-height: 120%;
+}
+
+.branchInfo{
+    display: flex;
+    flex-direction: column;
+    width : 138px;
+    gap: 0px;
+}
+
+.branchAdress{
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7B7B7B;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logo{
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.dropdownIcon{
+    min-width: 24px;
+    min-height: 24px;
+    transform: rotate(0deg);
+    transition: 400ms;
+}
+
+.active{
+    background: #EDF3FC;
+}
+
+.active .dropdownIcon{
+    transform: rotate(180deg) !important;
+    transition: 400ms;
+}
+
+.branchListWrapper{
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    padding: 18px 8px 8px 8px;
+    background-color: #FDFDFF;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.03), 0px 8px 18px 0px rgba(0, 0, 0, 0.03), 0px 33px 33px 0px rgba(0, 0, 0, 0.03), 0px 74px 44px 0px rgba(0, 0, 0, 0.02), 0px 131px 52px 0px rgba(0, 0, 0, 0.00), 0px 205px 57px 0px rgba(0, 0, 0, 0.00);
+    border-radius: 8px;
+    border: 1px solid rgba(67, 88, 117, 0.12);
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    text-align: left;
+    gap: 12px;
+    z-index: 1000;
+}
+
+.branchListName{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    word-break: break-word;
+    text-align: left;
+    line-height: 120%;
+}
+
+.branchListInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.companyName{
+    margin: 0px;
+    margin-left: 8px;
+    margin-right: 22px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0px;
+}
+
+.branches{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.branchListInfo:hover{
+    background-color: rgba(67, 88, 117, 0.05);
+    transition: 300ms;
+}
+
+.branchListAdress{
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7B7B7B;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.divider{
+    height: 1px;
+    margin: 0 12px;
+    background: rgba(67, 88, 117, 0.12);
+}
+
+.divider:last-child{
+    display: none;
+}
+
+.branchList{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal_backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: 999;
+}
+
+.img_name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobileQuitButton{
+    display: none;
+}
+
+@media screen and (min-width: 501px) {
+    .navBurger{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .navWrapper{
+        display: flex;
+        height: 70px;
+        min-height: 70px;
+    }
+
+    .navBurger{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #FDFDFF;
+        padding: 0px 40px;
+        height: 70px;
+        min-height: 70px;
+        border-bottom: 2px solid rgba(67, 88, 117, 0.12);
+        align-items: center;
+    }
+
+    button.burger{
+        background-color:transparent;
+        border:none;
+        height:30px;
+        outline:none;
+        padding:8px;
+        position: relative;
+        width:58px;
+        transition: transform 0.7s cubic-bezier(.25,.8,.25,1);
+        width:58px;
+      }
+      
+      .burger span{
+        background-color:#999999;
+        border-radius:25px;
+        display:block;
+        height:2px;
+        position: absolute;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        width:40px;
+      }
+      
+      .burger span.bar_1{
+        top:0;
+        width:40px;
+      }
+      .burger span.bar_2{
+        top:12px;
+        width:40px;
+      }
+      .burger span.bar_3{
+        top:24px;
+        width:40px;
+      }
+      
+      .burger.expanded{
+        height:30px;
+        transform:rotate(180deg);
+        transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+        width:58px;
+      }
+      
+      .burger.expanded span.bar_1{
+        left: 18px;
+        top: 6px;
+        transform-origin: left;
+        transform:rotate(45deg);
+        width:30px;
+        background-color:#172034;
+      }
+      .burger.expanded span.bar_2{
+        opacity:0;
+      }
+      .burger.expanded span.bar_3{
+        left:18px;
+        top:28px;
+        transform-origin: left;
+        transform:rotate(-45deg);
+        width:30px;
+        background-color:#555555;
+      }
+
+    .header_logo{
+        height: 40px;
+        width: auto;
+    }
+
+    .nav.hidden{
+        display: none;
+    }
+
+    .navWrapper{
+        position: fixed;
+        z-index: 900;
+        width: 100vw;
+    }
+
+    .nav{
+        margin-top: 0;
+        width: 100vw;
+        max-width: 100vw;
+        min-width: 100vw;;
+        height: 100vh;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 22px 40px 160px 40px;
+        gap:22px;
+        border: none;
+        font-weight: 400;
+        justify-content: space-between;
+        background-color: #FDFDFF;
+        overflow-y: scroll;
+    }
+
+    .mobileQuitButton{
+        display: inline-block;
+        width: 50%;
+        margin-top: 22px;
+        height: 50px;
+    }
+
+    .user_wrapper{
+        display: none;
+    }
+  }

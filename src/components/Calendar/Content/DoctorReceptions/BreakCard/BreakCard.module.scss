@@ -1,0 +1,28 @@
+.reception_filled{
+    border-radius: 6px;
+    background-color: #EDF3FC;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+}
+
+.reception_time{
+    opacity: 0.7;
+    font-weight: 500;
+    min-width: fit-content;
+}
+
+.reception_body_small{
+    font-family: Inter;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    padding-left: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}

@@ -1,0 +1,74 @@
+@import "../../../styles/variables/variables.scss";
+
+.mobile_daypicker{
+    display: flex;
+    position: relative;
+    width: 93vw;
+    align-items: center;
+    position: fixed;
+    bottom: 12px;
+    left: 3.5vw;
+    // height: 64px;
+    background: $bg_main;
+    z-index: 20;
+    border-radius: 14px;
+    box-shadow: $popover_shadow;
+    padding: 6px;
+}
+
+.month_name{
+    z-index: 21;
+    position: absolute;
+    background: $bg_main;
+    padding: 4px 12px;
+    top: -32px;
+    left: 0px;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: $popover_shadow;
+    text-transform: capitalize;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+}
+
+.date_day_of_week{
+    font-size: 13px;
+    font-weight: 500;
+    color: $text_secondary;
+    
+    &.weekend{
+        color: $dangerous;
+        opacity: 0.6;
+    }
+}
+
+.date_day{
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 0px;
+}
+
+.selected{
+    background: $bg_brand;
+
+    .date_day_of_week{
+        color: $text_invert;
+    }
+    
+    .date_day{
+        color: $text_invert;
+    }
+}
+
+.today{
+    border: 1px solid $bg_brand;
+}

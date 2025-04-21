@@ -1,0 +1,26 @@
+.arco-checkbox-mask{
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: 1px solid #FF813D !important;
+}
+
+.arco-checkbox-mask:hover{
+    border: 1px solid #FF813D !important;
+    background: #F9FBFF !important;
+}
+
+.arco-checkbox-checked .arco-checkbox-mask{
+    border: 1px solid #FF813D;
+    background: #F9FBFF;
+}
+
+
+.arco-checkbox-checked{
+    border: none;
+}
+
+.arco-checkbox-mask-icon{
+    width: 10px;
+    color: #FF813D;
+}

@@ -1,0 +1,103 @@
+@import "../../styles/variables/variables.scss";
+
+.client_wrapper{
+    padding: 40px;
+    background: #FDFDFF;
+    border-radius: 12px;
+    border: 2px solid rgba(67, 88, 117, 0.08);
+    width: 880px;
+    overflow: auto;
+}
+
+.buttons_wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    align-items: flex-end;
+}
+
+.table_wrapper{
+    margin-top: 32px;
+    border: 2px solid rgba(67, 88, 117, 0.08);
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    background: $bg_white;
+    overflow: hidden;
+
+}
+
+table{
+    width: 100%;
+}
+.tdh{
+    text-align: left;
+    padding: 16px 22px 16px 22px;
+    font-weight: 500;
+    width: 10%;
+}
+
+.trh{
+    border-bottom: 2px solid rgba(67, 88, 117, 0.08);
+    font-weight: 500;
+}
+
+.tdb{
+    text-align: left;
+    padding: 16px 22px 16px 22px;
+}
+
+.trb{
+    border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+}
+
+.trb:hover{
+    background: rgba(67, 88, 117, 0.05);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.table_content_wrapper{
+    max-height: 200px;
+}
+
+.table_header{
+    padding: 10px 22px 10px 22px;
+    text-align: left;
+    background: rgba(67, 88, 117, 0.05);
+    border-bottom: 1px solid rgba(67, 88, 117, 0.08);
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.buttons_together{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .client_wrapper{
+        max-width: 450px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .client_wrapper{
+        padding: 20px;
+        margin-top: 200px;
+    }
+}
+
+.input_group{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    & input{
+        width: 100%;
+    }
+}
