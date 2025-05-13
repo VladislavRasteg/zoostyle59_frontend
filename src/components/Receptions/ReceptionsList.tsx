@@ -1,13 +1,19 @@
 import React, {useContext, useEffect, useState} from "react";
 import {observer} from "mobx-react-lite";
 import s from './ReceptionsList.module.scss'
-import {Button, Dropdown, Form} from "react-bootstrap";
 import "@arco-design/web-react/dist/css/arco.css";
 import {Context} from "../../index";
 import {getAllReceptions} from "../../http/receptionsAPI";
 import Pages from "../Pages/Pages";
 import ReceptionRow from "./ReceptionRow/ReceptionRow";
 import GroupRow from "@/components/Receptions/GroupRow/GroupRow";
+import { listDoctors } from "@/http/doctorsAPI";
+import { listProcedures } from "@/http/proceduresAPI";
+import { Datepicker } from "@/shared/Datepicker";
+import { MenuItem, Select } from "@/shared/Select";
+import { IAppointment, IEmployee } from "@/interfaces/interfaces";
+import { Button } from "@/shared/Button";
+import { Title } from "@/shared/Title";
 
 const ReceptionsList = observer(() => {
     const {user} = useContext(Context)
@@ -15,27 +21,32 @@ const ReceptionsList = observer(() => {
     const {receptions} = useContext(Context)
     const [doctors, setDoctors] = useState([])
     const [procedures, setProcedures] = useState([])
-    const [searchDoctor, setSearchDoctor] = useState(false)
+    const [searchDoctor, setSearchDoctor] = useState<number>()
 
     //new reception fields
     const [isNewReception, setIsNewReception] = useState(false)
 
     //new reception modal
-    const [searchDate, setSearchDate] = useState("")
+    const [searchDate, setSearchDate] = useState<Date>()
     const [isSearchDate, setIsSearchDate] = useState(false)
 
 
     useEffect(() => {
-        getAllReceptions(receptions.page, 20, receptions.selectedDoctor, searchDate, user.currentBranch?.id).then((data: any) => {
-            receptions.setReceptions(data.data.receptions.rows)
-            receptions.setTotalCount(data.data.receptions.count)
-            setDoctors(data.data.doctors)
-            setProcedures(data.data.procedures)
+        listDoctors(1, 1000).then((data: any) => {
+            setDoctors(data.data.rows)
+        })
+
+        listProcedures(1, 999, 0).then((data: any) => {
+            setProcedures(data.data)
+        })
+
+        getAllReceptions(receptions.page, 20, searchDoctor, searchDate).then((data: any) => {
+            receptions.setReceptions(data.data.rows)
+            receptions.setTotalCount(data.data.count)
             setIsNewReception(false)
             setIsSearchDate(false)
-            console.log(data.data)
         })
-    }, [receptions.page, searchDoctor, isNewReception, isSearchDate])
+    }, [receptions.page, searchDoctor, searchDate])
 
 
     let currentDate = new Date()
@@ -43,20 +54,23 @@ const ReceptionsList = observer(() => {
         let receptionStartDate = new Date(date + ' ' + time)
         let receptionEndDate = new Date(date + ' ' + endTime)
         if (currentDate < receptionStartDate) {
-            return ('Сеанс запланирован')
+            return ('Запланирована')
         } else if (currentDate > receptionEndDate) {
-            return ('Сеанс завершен')
+            return ('Завершена')
         } else if (currentDate < receptionEndDate && currentDate > receptionStartDate) {
-            return ("Сеанс идет")
+            return ("В процессе")
         } else {
             return ("-")
         }
     }
 
 
-    const chooseDoctor = (doctor: {}) => {
-        setSearchDoctor(!searchDoctor)
-        receptions.setSelectedDoctor(doctor)
+    const chooseDoctor = (employee: number) => {
+        setSearchDoctor(employee)
+    }
+
+    const formatName = (obj: {surname: string, firstName: string, middleName: string}) => {
+        return `${obj.surname}${obj.firstName ? " " + obj.firstName[0] + "." : ""}${obj.middleName ? " " + obj.middleName[0] + "." : ""}`
     }
 
     return (
@@ -64,39 +78,28 @@ const ReceptionsList = observer(() => {
             <div className={s.table_buttons_wrapper}>
                 <div className={s.buttonsWrapper}>
                     <div className={s.buttonsGroup}>
-                        <Dropdown style={{marginLeft: 22, height: 46}}>
-                            <Dropdown.Toggle style={{height: 46}}>
-                                {receptions.selectedDoctor.surname
-                                    ? `${receptions.selectedDoctor.surname} ${receptions.selectedDoctor.first_name} ${receptions.selectedDoctor.middle_name}`
-                                    : "Выберите сотрудника"}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item
-                                    key={0}
-                                    onClick={() => chooseDoctor({})}
-                                >
+                        <div className={s.input_group}>
+                            <Title title="Сотрудник"/>
+                            <Select
+                                value={searchDoctor || ''}
+                                onChange={(e: any) => chooseDoctor(e.target.value)}
+                            >
+                                <MenuItem key={0} value={undefined}>
                                     Отменить выбор
-                                </Dropdown.Item>
-                                {doctors.map((doctor: any) =>
-                                    <Dropdown.Item
-                                        key={doctor.id}
-                                        onClick={() => chooseDoctor(doctor)}
-                                    >
-                                        {doctor.surname + ' ' + doctor.first_name[0] + '.' + doctor.middle_name[0] + '.'}
-                                    </Dropdown.Item>
-                                )}
-                            </Dropdown.Menu>
-                        </Dropdown>
-
-                        <div className={s.input_and_button}>
-                            <Form.Control placeholder={'Укажите дату'} style={{
-                                height: 42,
-                                background: "#EDF3FC",
-                                color: "#435875",
-                                border: "1px solid #D1D6E1",
-                                borderRadius: 8
-                            }} value={searchDate} onChange={(event) => setSearchDate(event.target.value)} type={'date'}/>
-                            <Button onClick={() => setIsSearchDate(true)}>OK</Button>
+                                </MenuItem>
+                                {
+                                doctors && doctors.map((variant: IEmployee) => (
+                                    <MenuItem key={variant.id} value={variant.id}>
+                                    {variant.surname} {variant.firstName} {variant.middleName}
+                                    </MenuItem>
+                                ))
+                                }
+                            </Select>
+                        </div>
+                        
+                        <div className={s.input_group}>
+                            <Title title="Дата"/>
+                            <Datepicker date={searchDate} setDate={setSearchDate}/>
                         </div>
                     </div>
                 </div>
@@ -107,44 +110,30 @@ const ReceptionsList = observer(() => {
                         <table>
                             <thead>
                                 <tr className={s.trh}>
-                                    <th className={s.tdh}>Клиент/Группа</th>
+                                    <th className={s.tdh}>Клиент/Питомец</th>
                                     <th className={s.tdh}>Сотрудник</th>
                                     <th className={s.tdh}>Услуги</th>
-                                    <th className={s.tdh}>Дата</th>
-                                    <th className={s.tdh}>Время</th>
+                                    <th className={s.tdh}>Дата и время</th>
+                                    <th className={s.tdh}>Сумма</th>
                                     <th className={s.tdh}>Статус</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {receptions.receptions.map((reception: any) =>
-                                <>
-                                    {reception?.client &&
-                                        <ReceptionRow
-                                            key={reception.id}
-                                            client_name={reception.client.surname + ' ' + reception.client.first_name + ' ' + reception.client.middle_name}
-                                            doctor_name={reception.doctor.surname + ' ' + reception.doctor.first_name[0] + '.' + reception.doctor.middle_name[0] + '.'}
-                                            procedures={reception.receptionProcedures}
-                                            id={reception.id}
-                                            date={(reception.date).split("-").reverse().join(".")}
-                                            time={reception.time.toString().slice(0, 5)}
-                                            endTime={reception.endTime.toString().slice(0, 5)}
-                                            status={getStatus(reception.date, reception.time, reception.endTime)}
-                                        />
-                                    }
-                                    {reception?.group &&
-                                        <GroupRow
-                                            key={reception.id}
-                                            group_name={reception.group.name}
-                                            doctor_name={reception.doctor.surname + ' ' + reception.doctor.first_name[0] + '.' + reception.doctor.middle_name[0] + '.'}
-                                            procedures={reception.receptionProcedures}
-                                            id={reception.id}
-                                            date={(reception.date).split("-").reverse().join(".")}
-                                            time={reception.time.toString().slice(0, 5)}
-                                            endTime={reception.endTime.toString().slice(0, 5)}
-                                            status={getStatus(reception.date, reception.time, reception.endTime)}
-                                        />
-                                    }
-                                </>
+                            {receptions.receptions.map((appointment: IAppointment) =>
+                                <tr className={s.trb} key={appointment.id}>
+                                    <td className={s.tdb}>{formatName(appointment.client)}<br/>{appointment.pet.breed} {appointment.pet.name}</td>
+                                    <td className={s.tdb}>{formatName(appointment.user)}</td>
+                                    <td className={s.tdb}>{
+                                        appointment.appointmentServices.map((service) =>
+                                            <p className={s.appointment_date} key={service.id}>
+                                                {service.service.name} <span>{service.service.price}₽</span>
+                                            </p>
+                                            )    
+                                    }</td>
+                                    <td className={s.tdb}>{appointment.date}<br/>{appointment.time} — {appointment.endTime}</td>
+                                    <td className={s.tdb}>{appointment.sum} ₽</td>
+                                    <td className={s.tdb}>{getStatus(appointment.date, appointment.time, appointment.endTime)}</td>
+                                </tr>
                             )}
                             </tbody>
                         </table>

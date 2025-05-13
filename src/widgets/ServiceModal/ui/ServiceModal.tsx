@@ -73,7 +73,7 @@ export const ServiceModal = ({mode, show, onClose, service, groupToAdd = null}: 
     if (service && service.id && name && price && duration) {
       updateProcedure(service.id, name, Number(price), Number(duration), isOnlineAppointment, user.currentBranch?.id)
       .then((data: any) => {
-        toast.success('Услуга обновлена')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -88,6 +88,7 @@ export const ServiceModal = ({mode, show, onClose, service, groupToAdd = null}: 
   return (
     <Modal show={show}
            name={mode === 'create' ? "Новая услуга" : mode === 'update' && user.isAdmin ? "Редактирование услуги" : "Об услуге"}
+           onDelete={() => setShowConfirmation(true)} allowDelete={mode === 'update'}
            onClose={onClose}>
       <Modal show={showConfirmation} onClose={() => setShowConfirmation(false)} name="Подтверждение">
         <ModalContent height="110px">
@@ -101,13 +102,6 @@ export const ServiceModal = ({mode, show, onClose, service, groupToAdd = null}: 
       <ModalContent height={"420px"} width={isMobile ? "100%" : "544px"}>
         <div className={s.modal_body}>
           <div className={s.appointment_wrapper}>
-            {
-              mode === "update" && user.isAdmin &&
-                <div className={s.cancel_wrapper}>
-                    <Button size="small" theme="dangerous" onClick={() => setShowConfirmation(true)}>Удалить</Button>
-                </div>
-            }
-
             <div className={s.input_group}>
               <Title title="Название" required/>
               <Input placeholder="Название" offAutoComplite value={name} onChange={setName}/>
@@ -127,7 +121,7 @@ export const ServiceModal = ({mode, show, onClose, service, groupToAdd = null}: 
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {mode === "create" && <Button fullWidth size="big" onClick={() => {
           createServiceHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {mode === "update" && user.isAdmin && <Button fullWidth size="big" onClick={() => {
           updateServiceHandler()
         }}>Сохранить</Button>}

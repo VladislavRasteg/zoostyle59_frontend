@@ -3,7 +3,7 @@ import s from "./Content.module.scss";
 import ModalContent from "@/components/Modal/ModalContent";
 import {Form} from "react-bootstrap";
 import ModalFooter from "@/components/Modal/ModalFooter";
-import {Button as VladButton} from "@/shared/Button";
+import {Button as SharedButton} from "@/shared/Button";
 import Modal from "@/components/Modal/Modal";
 import {useForm} from "react-hook-form";
 import {createBreak, createDayOff, deleteAllBreaks} from "@/http/breaksAPI";
@@ -202,9 +202,9 @@ const DoctorCard = ({surname, first_name, last_name, breakData, refetchCalendar}
                   </Form>
               </ModalContent>
               <ModalFooter>
-                  <VladButton fullWidth size="big" disabled={!isValid} onClick={handleSubmit(onSubmit)}>
-                      Создать
-                  </VladButton>
+                  <SharedButton fullWidth size="big" disabled={!isValid} onClick={handleSubmit(onSubmit)}>
+                    Добавить
+                  </SharedButton>
               </ModalFooter>
           </Modal>
       }

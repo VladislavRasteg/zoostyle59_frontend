@@ -88,7 +88,7 @@ const ProductsList = observer(() => {
                                 </thead>
                                 <tbody>
                                 {products.products.map((product: IProduct) =>
-                                    <tr className={s.trb} onClick={() => {setSelectedProduct(product); setShow(true)}}
+                                    <tr className={`${s.trb} ${product.count <= 3 ? s.warning : ""}`} onClick={() => {setSelectedProduct(product); setShow(true)}}
                                         key={product.id}>
                                         <td className={s.tdb}>{product.name}</td>
                                         <td className={s.tdb}>{product.price} ₽</td>

@@ -171,7 +171,7 @@ export const AbonementTypeModal = ({show, onClose, abonement}: IModalProps) => {
             size="big" 
             onClick={() => createAbonementHandler()}
         >
-            Создать
+            Добавить
         </Button>}
         {abonement && user.isAdmin && <Button fullWidth size="big" onClick={() => {
           updateAbonementHandler()

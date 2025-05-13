@@ -114,7 +114,7 @@ export const OnlineBookingBlock = () => {
         isWidgetError &&
           <Reveal duration={0.8} delay={0.1}>
               <TitledBlock className={s.error} title="Онлайн-запись пока не работает"
-                           description="Сначала нужно создать специалиста и прикрепить к нему услугу"/>
+                           description="Сначала нужно Добавить специалиста и прикрепить к нему услугу"/>
           </Reveal>
       }
       <div className={s.horizontal_container}>

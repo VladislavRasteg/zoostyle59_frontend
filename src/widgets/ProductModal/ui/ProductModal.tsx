@@ -56,7 +56,7 @@ export const ProductModal = ({show, onClose, product}: IModalProps) => {
   }
 
   const createProductHandler = () => {
-    if (name && price) {
+    if (name && price && count) {
       createProduct(name, price, count, isForService)
       .then((data: any) => {
         toast.success('Товар добавлен')
@@ -71,10 +71,10 @@ export const ProductModal = ({show, onClose, product}: IModalProps) => {
   }
 
   const updateProductHandler = () => {
-    if (product?.id && name && price) {
+    if (product?.id && name && price && count) {
       updateProduct(product?.id, name, price, count, isForService)
       .then((data: any) => {
-        toast.success('Товар обновлен')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -125,7 +125,7 @@ export const ProductModal = ({show, onClose, product}: IModalProps) => {
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {!product && <Button fullWidth size="big" onClick={() => {
           createProductHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {product && <Button fullWidth size="big" onClick={() => {
           updateProductHandler()
         }}>Сохранить</Button>}

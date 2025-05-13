@@ -52,7 +52,7 @@ const Positions = observer(() => {
                 handleClose()
                 return( Notification.success({
                     title: 'Сообщение',
-                    content: 'Должность успешно изменена!',
+                    content: 'Данные изменены',
                 }))
             })
         } catch(e) {
@@ -68,7 +68,7 @@ const Positions = observer(() => {
                 handleClose()
                 return( Notification.info({
                     title: 'Удаление',
-                    content: 'Должность успешно удалена!',
+                    content: 'Должность удалена',
                 }))
             })
         } catch(e) {
@@ -85,7 +85,7 @@ const Positions = observer(() => {
                     setIsAdd(false)
                     return( Notification.success({
                         title: 'Сообщение',
-                        content: 'Должность успешно добавлена!',
+                        content: 'Должность добавлена',
                     }))
                 })
             } catch(e: any) {

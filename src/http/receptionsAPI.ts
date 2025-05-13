@@ -1,8 +1,8 @@
 import {$authHost, $host} from "./index";
 
-export const getAllReceptions = async (page=1, limit=10, selectedDoctor= {}, searchDate="", branchId: number) =>{
-    const {data} = await $authHost.get('api/receptions/list', {params: {
-            page, limit, selectedDoctor, searchDate, branchId
+export const getAllReceptions = async (page=1, limit=10, employeeId?: number, date?: Date,) =>{
+    const {data} = await $authHost.get('api/appointment/', {params: {
+            page, limit, employeeId, date
         }})
     return {data}
 }

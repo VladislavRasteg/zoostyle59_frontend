@@ -60,7 +60,7 @@ const Group = observer(() => {
       navigate(`${CLIENTS_ROUTE}/groups`)
       return (Notification.success({
         title: 'Сообщение',
-        content: 'Группа успешно удалена!',
+        content: 'Группа удалена',
       }))
     } catch (e) {
       alert(e)

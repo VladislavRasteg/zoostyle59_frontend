@@ -269,7 +269,7 @@ const Content = observer(() => {
         .then((data: any) => {
           return (Notification.success({
             title: 'Сообщение',
-            content: 'Запись успешно обновлена',
+            content: 'Данные изменены',
           }))
         })
     } catch (e) {
@@ -304,6 +304,8 @@ const Content = observer(() => {
   const TimeDiff = currentTime.getHours() * 60 + currentTime.getMinutes() - Number(startWorkTime.slice(0, 2)) * 60 + Number(startWorkTime.slice(3, 5))
 
   const showAppointmentModalHandler = (client: IClient, propsSum: number, petId: number, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMSnumber: string, isAbonement = false) => {
+    console.log("employee")
+    console.log(employee)
     setShow(true)
     setClient(client)
     setDoctor({id: employee})

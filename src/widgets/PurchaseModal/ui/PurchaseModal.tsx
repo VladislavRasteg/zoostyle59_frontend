@@ -55,7 +55,7 @@ export const PurchaseModal = ({show, onClose, sell}: IModalProps) => {
     if(sell && sell.id){
       deletePurchase(sell.id)
       .then(() => {
-        toast.success('Покупка удалена')
+        toast.success('Закупка удалена')
         onClose()
       })
       .catch(e => {
@@ -118,7 +118,7 @@ export const PurchaseModal = ({show, onClose, sell}: IModalProps) => {
     if (sum && sellProducts && sellProducts.length > 0 && selectedEmployee) {
       createPurchase(selectedEmployee, note, sum, sellProducts)
       .then((data: any) => {
-        toast.success('Покупка добавлена')
+        toast.success('Закупка добавлена')
         onClose()
       })
       .catch(e => {
@@ -133,7 +133,7 @@ export const PurchaseModal = ({show, onClose, sell}: IModalProps) => {
     if (sell?.id && sum && sellProducts && sellProducts.length > 0 && selectedEmployee) {
       updatePurchase(sell.id, selectedEmployee, note, sum, sellProducts)
       .then((data: any) => {
-        toast.success('Изменения сохранены')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -145,10 +145,10 @@ export const PurchaseModal = ({show, onClose, sell}: IModalProps) => {
   }
 
   return (
-    <Modal show={show} name={sell ? "Редактирование продажи" : "Новая продажа"} onDelete={() => setShowConfirmation(true)} allowDelete={!!sell} onClose={onClose}>
+    <Modal show={show} name={sell ? "Редактирование закупки" : "Новая закупка"} onDelete={() => setShowConfirmation(true)} allowDelete={!!sell} onClose={onClose}>
       <Modal show={showConfirmation} onClose={() => setShowConfirmation(false)} name="Подтверждение">
         <ModalContent height="110px">
-          <p className={s.confirmation_text}>Вы уверены, что хотите удалить продажу?</p>
+          <p className={s.confirmation_text}>Вы уверены, что хотите удалить закупку?</p>
         </ModalContent>
         <ModalFooter>
           <Button theme="border" size="big" onClick={() => setShowConfirmation(false)} fullWidth>Отменить</Button>
@@ -239,7 +239,7 @@ export const PurchaseModal = ({show, onClose, sell}: IModalProps) => {
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {!sell && <Button fullWidth size="big" onClick={() => {
           createSellHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {sell && <Button fullWidth size="big" onClick={() => {
           updateSellHandler()
         }}>Сохранить</Button>}

@@ -90,11 +90,11 @@ const Client = observer(() => {
 
     const delReception = async () => {
         try{
-            await deleteReception(id, user.currentBranch?.id)
+            await deleteReception(id)
             navigate(RECEPTIONS_ROUTE)
             return( Notification.success({
                 title: 'Сообщение',
-                content: 'Сеанс отменен успешно!',
+                content: 'Запись отменена',
             }))
         } catch(e) {
             alert(e)

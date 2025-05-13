@@ -65,7 +65,7 @@ export const GroupModal = ({mode = "create", show, onClose, group}: IModalProps)
     if (name) {
       createGroup(name, selectedServices, user.currentBranch?.id)
       .then((data: any) => {
-        toast.success('Услуга добавлена')
+        toast.success('Группа добавлена')
         onClose()
       })
       .catch(e => {
@@ -80,7 +80,7 @@ export const GroupModal = ({mode = "create", show, onClose, group}: IModalProps)
     if (group && group.id) {
       updateGroup(group.id, name, selectedServices, user.currentBranch?.id)
       .then((data: any) => {
-        toast.success('Услуга обновлена')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -95,6 +95,7 @@ export const GroupModal = ({mode = "create", show, onClose, group}: IModalProps)
   return (
     <Modal show={show}
            name={mode === 'create' ? "Новая группа" : "Редактирование группы"}
+           onDelete={() => setShowConfirmation(true)} allowDelete={mode === 'update'}
            onClose={onClose}>
       <Modal show={showConfirmation} onClose={() => setShowConfirmation(false)} name="Подтверждение">
         <ModalContent height="110px">
@@ -108,13 +109,6 @@ export const GroupModal = ({mode = "create", show, onClose, group}: IModalProps)
       <ModalContent height={mode === 'create' ? "260px" : "360px"} width={isMobile ? "100%" : "544px"}>
         <div className={s.modal_body}>
           <div className={s.appointment_wrapper}>
-            {
-              mode === "update" && user.isAdmin &&
-                <div className={s.cancel_wrapper}>
-                    <Button size="small" theme="dangerous" onClick={() => setShowConfirmation(true)}>Удалить</Button>
-                </div>
-            }
-
             <div className={s.input_group}>
               <Title title="Название группы" required/>
               <Input placeholder="Название группы" offAutoComplite value={name} onChange={setName}/>
@@ -145,7 +139,7 @@ export const GroupModal = ({mode = "create", show, onClose, group}: IModalProps)
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {mode === "create" && <Button fullWidth size="big" onClick={() => {
           createGroupHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {mode === "update" && user.isAdmin && <Button fullWidth size="big" onClick={() => {
           updateGroupHandler()
         }}>Сохранить</Button>}

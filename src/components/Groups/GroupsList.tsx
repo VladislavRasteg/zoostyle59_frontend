@@ -51,7 +51,7 @@ const GroupsList = observer(() => {
           })
         return( Notification.success({
           title: 'Сообщение',
-          content: 'Группа успешно добавлена!',
+          content: 'Группа добавлена',
         }))
       })
       .catch((err: any) => {
@@ -110,7 +110,7 @@ const GroupsList = observer(() => {
               </ModalContent>
               <ModalFooter>
                   <VladButton fullWidth size="big" disabled={!groupName && !selectedClients?.length} onClick={onSubmit}>
-                      Создать
+                    Добавить
                   </VladButton>
               </ModalFooter>
           </Modal>
@@ -118,8 +118,8 @@ const GroupsList = observer(() => {
 
       <div className={s.table_buttons_wrapper}>
         <div className={classNames(s.buttonsWrapper, {}, [isMobile ? s.right : ''])}>
-          {user.isAdmin && <Button className='p-2 pe-5 ps-5 rounded-3' variant='outline-primary' onClick={handleShow}>Новая
-              группа</Button>}
+          {user.isAdmin && <Button className='p-2 pe-5 ps-5 rounded-3' variant='outline-primary' onClick={handleShow}>Добавить
+              группу</Button>}
         </div>
         <div className={s.table_wrapper}>
           <div>

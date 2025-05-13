@@ -101,7 +101,7 @@ const Users = observer(() => {
         handleClose()
         return (Notification.success({
             title: 'Сообщение',
-            content: 'Пользователь успешно изменен!',
+            content: 'Данные изменены',
         }))
     }
 
@@ -140,7 +140,7 @@ const Users = observer(() => {
             setManuallyUpdated(!manuallyUpdated)
             return (Notification.success({
                 title: 'Сообщение',
-                content: 'Приглашение отменено успешно',
+                content: 'Приглашение отменено',
             }))
         })
     }
@@ -152,7 +152,7 @@ const Users = observer(() => {
             setManuallyUpdated(!manuallyUpdated)
             return (Notification.success({
                 title: 'Сообщение',
-                content: 'Пользователь удален успешно!',
+                content: 'Пользователь удален',
             }))
         })
     }

@@ -85,7 +85,7 @@ const Schedule = observer(() => {
                     handleClose()
                     return( Notification.success({
                         title: 'Сообщение',
-                        content: 'Расписание изменено успешно!',
+                        content: 'Данные изменены',
                         }))
                 })
         } catch(e) {

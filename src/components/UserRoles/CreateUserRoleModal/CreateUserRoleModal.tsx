@@ -82,7 +82,7 @@ const CreateUserRoleModal = ({show, name, setShow, mode}: ModalProps) => {
                 <Button theme="border" size="big" fullWidth>Закрыть</Button>
                 {mode === "create" 
                     ? 
-                    <Button fullWidth size="big">Создать</Button>
+                    <Button fullWidth size="big">Добавить</Button>
                     :
                     <Button fullWidth size="big">Сохранить</Button>
                 }

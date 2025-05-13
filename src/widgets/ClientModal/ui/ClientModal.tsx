@@ -58,7 +58,7 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
     if(client && client.id){
       deleteClient(client.id)
       .then(() => {
-        toast.success('Сотрудник удален')
+        toast.success('Клиент удален')
         onClose()
       })
       .catch(e => {
@@ -88,7 +88,7 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
     if (client?.id && name && phone) {
       updateClient(client.id, surname, name, middleName, dob, phone, user.currentBranch?.id, mail, caretaker)
       .then((data: any) => {
-        toast.success('Клиент обновлен')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -122,20 +122,6 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
         width={isMobile ? "100%" : (previousAppointments && previousAppointments.length) ? "944px" : "544px"}>
         <div className={s.modal_body}>
           <div className={s.appointment_wrapper}>
-            {
-              user?.currentBranch?.abonements && !abonement && client && 
-              <Button fullWidth theme="secondary" onClick={() => setShowAbonement(true)}>Выдать абонемент</Button>
-            }
-            {
-              user?.currentBranch?.abonements && abonement && client && 
-              <AbonementCard abonement={abonement} updateHandler={() => setUpdated(!updated)}/>
-            }
-            { tenant?._tenant?.hasCaretaker && 
-              <div className={s.input_group}>
-                <Title title="Опекун"/>
-                <Input placeholder="Опекун" offAutoComplite value={caretaker} onChange={setCaretaker}/>
-              </div> 
-            }
             <div className={s.input_group}>
               <Title title="Фамилия" required/>
               <Input placeholder="Фамилия" offAutoComplite value={surname} onChange={setSurname}/>
@@ -157,7 +143,7 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
               <PhoneInput value={phone} onChange={setPhone}/>
             </div>
             <div className={s.input_group}>
-              <Title title="Почта"/>
+              <Title title="Почта" required/>
               <Input placeholder="Почта" offAutoComplite value={mail} onChange={setMail}/>
             </div>
           </div>
@@ -198,7 +184,7 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {!client && <Button fullWidth size="big" onClick={() => {
           createClientHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {client && user.isAdmin && <Button fullWidth size="big" onClick={() => {
           updateClientHandler()
         }}>Сохранить</Button>}

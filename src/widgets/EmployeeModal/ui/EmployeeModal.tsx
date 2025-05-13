@@ -120,7 +120,7 @@ export const EmployeeModal = ({mode, show, onClose, employee, propsSelectedServi
       console.log(selectedServices)
       updateDoctor(employee.id, surname, name, middleName, positionId, dob, phone, mail, isAdmin ? "ADMINISTRATOR" : "USER", password)
       .then((data: any) => {
-        toast.success('Сотрудник обновлен')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -152,6 +152,7 @@ export const EmployeeModal = ({mode, show, onClose, employee, propsSelectedServi
   return (
     <Modal show={show}
            name={mode === 'create' ? "Новый сотрудник" : mode === 'update' && user.isAdmin ? "Редактирование сотрудника" : "О сотруднике"}
+           allowDelete={!!employee} onDelete={() => setShowConfirmation(true)}
            onClose={onClose}>
       <Modal show={showConfirmation} onClose={() => setShowConfirmation(false)} name="Подтверждение">
         <ModalContent height="110px">
@@ -165,26 +166,19 @@ export const EmployeeModal = ({mode, show, onClose, employee, propsSelectedServi
       <ModalContent height={"760px"} width={isMobile ? "100%" : "544px"}>
         <div className={s.modal_body}>
           <div className={s.appointment_wrapper}>
-            {
-              mode === "update" && user.isAdmin &&
-                <div className={s.cancel_wrapper}>
-                    <Button size="small" theme="dangerous" onClick={() => setShowConfirmation(true)}>Удалить</Button>
-                </div>
-            }
-
             <div className={s.input_group}>
               <Title title="Фамилия" required/>
               <Input placeholder="Фамилия" offAutoComplite value={surname} onChange={setSurname}/>
             </div>
             <div className={s.input_group}>
-              <Title title="Имя"/>
+              <Title title="Имя" required/>
               <Input placeholder="Имя" offAutoComplite value={name} onChange={setName}/>
             </div>
             <div className={s.input_group}>
               <Title title="Отчество"/>
               <Input placeholder="Отчество" offAutoComplite value={middleName} onChange={setMiddleName}/>
             </div>
-            <div className={s.input_group}>
+            <div className={s.input_group} >
               <Title required title="Дата рождения"/>
               <Datepicker placeholder="дд.мм.гггг" date={dob} setDate={setDob} showYearDropdown showMonthDropdown/>
             </div>
@@ -242,7 +236,7 @@ export const EmployeeModal = ({mode, show, onClose, employee, propsSelectedServi
             </div>
 
             <div className={s.input_group}>
-              <Title title="Номер телефона"/>
+              <Title title="Номер телефона" required/>
               <PhoneInput value={phone} onChange={setPhone}/>
             </div>
             <div className={s.input_group}>
@@ -250,7 +244,7 @@ export const EmployeeModal = ({mode, show, onClose, employee, propsSelectedServi
               <Input placeholder="Почта" offAutoComplite value={mail} onChange={setMail}/>
             </div>
             <div className={s.input_group}>
-              <Title title="Пароль"/>
+              <Title title="Пароль (6-16 символов)"/>
               <Input type="password" placeholder="Пароль" offAutoComplite value={password} onChange={setPassword}/>
             </div>
             <div className={s.input_group}>
@@ -264,7 +258,7 @@ export const EmployeeModal = ({mode, show, onClose, employee, propsSelectedServi
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {mode === "create" && <Button fullWidth size="big" onClick={() => {
           createEmployee()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {mode === "update" && user.isAdmin && <Button fullWidth size="big" onClick={() => {
           updateEmployee()
         }}>Сохранить</Button>}

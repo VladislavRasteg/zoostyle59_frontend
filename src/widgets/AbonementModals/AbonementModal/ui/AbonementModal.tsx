@@ -243,7 +243,7 @@ export const AbonementModal = ({show, onClose, abonement, clientId}: IModalProps
             size="big" 
             onClick={() => createAbonementHandler()}
         >
-            Создать
+            Добавить
         </Button>}
         {abonement && user.isAdmin && <Button fullWidth size="big" onClick={() => {
           updateAbonementHandler()

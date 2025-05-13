@@ -36,6 +36,7 @@ export interface IPet {
     name: string;
     sex: string;
     birth: string;
+    type: string;
     breed: string;
     feautures: string;
     clientId: number;
@@ -99,6 +100,7 @@ export interface IEmployee {
 export interface IAppointment {
     id: number;
     doctorId: number;
+    userId: number;
     petId: number;
     sum: number;
     date: string;

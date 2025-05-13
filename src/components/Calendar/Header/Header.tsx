@@ -12,6 +12,7 @@ import { MultiSelect } from 'primereact/multiselect';
 //import 'primereact/resources/primereact.scss';
 import './MultiSelect.scss'                       
 import { Dropdown } from "react-bootstrap";
+import { MenuItem, Select } from "@/shared/Select";
 
 const Header = observer(() => {
 
@@ -65,19 +66,20 @@ const Header = observer(() => {
                     <MultiSelect value={calendar.selectedDoctors} onChange={(e) => calendar.setSelectedDoctors(e.value)} options={calendar.doctors} optionLabel="surname"
                                 placeholder='Выберите сотрудников' maxSelectedLabels={4} className="w-full md:w-20rem"/>
                 :
-                    <Dropdown>
-                        <Dropdown.Toggle className='d-flex w-100 justify-content-between align-items-center' style={{height: 42, background: "#EDF3FC", color: "#435875", border: "1px solid #D1D6E1"}}>{calendar.selectedDoctors[0].surname ? calendar.selectedDoctors[0].surname : "Выберите сотрудника"}</Dropdown.Toggle>
-                        <Dropdown.Menu className='w-100'>
-                            {calendar.doctors.map((doctor: any) =>
-                                <Dropdown.Item
-                                    key={doctor.id}
-                                    onClick={() => calendar.setSelectedDoctors([doctor])}
-                                >
-                                    {doctor.surname}
-                                </Dropdown.Item>
-                            )}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                <></>
+                    // <Select
+                    //     className={s.select}
+                    //     value={calendar.selectedDoctors[0] || ''}
+                    //     onChange={(e: any) => calendar.setSelectedDoctors([e.target.value])}
+                    // >
+                    //     {
+                    //         calendar.doctors.map((variant) => (
+                    //             <MenuItem key={variant.id} value={variant}>
+                    //             {variant.surname}
+                    //             </MenuItem>
+                    //         ))
+                    //     }
+                    // </Select>
             }
         </div>
     )

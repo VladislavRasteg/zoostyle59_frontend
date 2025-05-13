@@ -53,7 +53,7 @@ const PurchasesList = observer(() => {
             {show && <PurchaseModal show={show} onClose={handleClose} sell={selectedPurchase} />}
             <div className={s.table_buttons_wrapper}>
                 <div className={classNames(s.buttonsWrapper, {}, [isMobile ? s.right : ''])}>
-                    {user.isAdmin && <Button size="small" onClick={() => handleShow()}>Новая закупка</Button>}
+                    {user.isAdmin && <Button size="small" onClick={() => handleShow()}>Добавить закупку</Button>}
                 </div>
                 <div className={s.table_wrapper}>
                     <div>

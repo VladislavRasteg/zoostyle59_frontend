@@ -46,7 +46,7 @@ const Modal: FC<ModalProps> = (props) => {
           animate="visible"
           exit="exit"
           className={s.aside_wrapper}
-          onClick={() => {setShow && setShow(!show); onClose && onClose()}}
+        //   onClick={() => {setShow && setShow(!show); onClose && onClose()}}
         >
             <div className={s.aside_body} onClick={(e) => {e.stopPropagation()}}>
                 <div className={s.modal_header}>

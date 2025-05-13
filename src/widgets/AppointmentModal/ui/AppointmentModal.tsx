@@ -82,6 +82,7 @@ export const AppointmentModal = ({
   const [appointmentEndTime, setAppointmentEndTime] = useState(endTime);
   const [appointmentEndTimeChanged, setAppointmentEndTimeChanged] = useState(false);
   const [searchClient, setSearchClient] = useState("");
+  const [comment, setComment] = useState("");
   const [searchResult, setSearchResult] = useState<IClient[]>()
   const [selectedClient, setSelectedClient] = useState<IClient | undefined>(client);
   
@@ -172,6 +173,13 @@ export const AppointmentModal = ({
     setSearchClient("")
   }
 
+  const petModalCloseHandler = () => {
+    getAllPets(1, 100, searchPet, selectedClient?.id).then((data: any) => {
+      setPets(data.data.rows)
+    })
+    setShowCreatePet(false)
+  }
+
   const changeSelectedServicesHandler = (services: Array<IService>) => {
     setSelectedServices(services)
     if (services.length && appointmentStartTime && !appointmentEndTimeChanged) {
@@ -193,7 +201,7 @@ export const AppointmentModal = ({
   const createReceptionHandler = (clientId: number, petId: number) => {
     createReception(selectedEmployee, clientId, date, appointmentStartTime, appointmentEndTime, '', petId, selectedServices || [], sum)
       .then(() => {
-        toast.success('Запись успешно создана')
+        toast.success('Запись добавлена')
         updateReceptions()
         onClose()
       })
@@ -206,7 +214,7 @@ export const AppointmentModal = ({
     if (appointmentId) {
       updateReception(appointmentId, selectedEmployee, clientId, date, appointmentStartTime, appointmentEndTime, '', petId, selectedServices || [], sum)
         .then(() => {
-          toast.success('Запись обновлена успешно')
+          toast.success('Данные изменены')
           updateReceptions()
           onClose()
         })
@@ -219,7 +227,7 @@ export const AppointmentModal = ({
   const cancelReceptionHandler = () => {
     deleteReception(appointmentId)
       .then(() => {
-        toast.success('Запись успешно отменена')
+        toast.success('Запись отменена')
         updateReceptions()
         onClose()
       })
@@ -249,7 +257,7 @@ export const AppointmentModal = ({
            name={mode === 'create' ? "Новая запись" : mode === 'update' && user.isAdmin ? "Редактировать запись" : "О записи"}
            onClose={onClose}>
       {showCreateClient && <ClientModal show={showCreateClient} onClose={() => setShowCreateClient(false)} />}
-      {showCreatePet && <PetModal show={showCreatePet} onClose={() => setShowCreatePet(false)} />}
+      {showCreatePet && <PetModal show={showCreatePet} onClose={() => petModalCloseHandler()} />}
       <Modal show={showConfirmation} onClose={() => setShowConfirmation(false)} name="Подтверждение">
         <ModalContent height="110px">
           <p className={s.confirmation_text}>Вы уверены, что хотите отменить запись?</p>
@@ -311,7 +319,7 @@ export const AppointmentModal = ({
                 <Input type="number" value={sum} onChange={setSum}/>
               </div>
               <div className={s.input_group}>
-                <Title title="Сотрудник"/>
+                <Title title="Сотрудник" required/>
                 <Select
                   value={selectedEmployee || ''}
                   onChange={(e: any) => setSelectedEmployee(e.target.value)}
@@ -326,35 +334,38 @@ export const AppointmentModal = ({
                 </Select>
               </div>
 
-              <div className={s.input_group}>
-                <Title title="Клиент"/>
-                <div className={s.search_client}>
-                  <Input offAutoComplite placeholder="Начните вводить фамилию" value={searchClient}
-                        onChange={setSearchClient}/>
-                  {
-                    searchResult && searchResult.length > 0 &&
-                      <div className={s.search_results}>
-                          <div className={s.outside_click_handler} onClick={() => setSearchResult(undefined)}></div>
-                        {
-                          searchResult.map((element, index) =>
-                            <div className={s.search_result} key={index} onClick={() => {
-                              selectClientHandler(element)
-                            }}>
-                              <p
-                                className={s.search_name}>{element.surname} {element.firstName} {element.middleName}</p>
-                              <div className={s.search_additional_info}>
-                                {element.phone && <p className={s.search_secondary}>{element.phone}</p>}
-                                {element.mail && <p className={s.search_secondary}>{element.mail}</p>}
-                              </div>
-                            </div>
-                          )
-                        }
-                      </div>
-                  }
-                </div>
-              </div>
               {
-                selectedClient &&
+                user.isAdmin &&
+                <div className={s.input_group}>
+                  <Title title="Клиент" required/>
+                  <div className={s.search_client}>
+                    <Input offAutoComplite placeholder="Начните вводить фамилию" value={searchClient}
+                          onChange={setSearchClient}/>
+                    {
+                      searchResult && searchResult.length > 0 &&
+                        <div className={s.search_results}>
+                            <div className={s.outside_click_handler} onClick={() => setSearchResult(undefined)}></div>
+                          {
+                            searchResult.map((element, index) =>
+                              <div className={s.search_result} key={index} onClick={() => {
+                                selectClientHandler(element)
+                              }}>
+                                <p
+                                  className={s.search_name}>{element.surname} {element.firstName} {element.middleName}</p>
+                                <div className={s.search_additional_info}>
+                                  {element.phone && <p className={s.search_secondary}>{element.phone}</p>}
+                                  {element.mail && <p className={s.search_secondary}>{element.mail}</p>}
+                                </div>
+                              </div>
+                            )
+                          }
+                        </div>
+                    }
+                  </div>
+                </div>
+              }
+              {
+                (user.isAdmin && selectedClient) &&
                 <div className={s.client_block}>
                 <p
                   className={s.search_name}>{selectedClient.surname} {selectedClient.firstName} {selectedClient.middleName}</p>
@@ -362,12 +373,15 @@ export const AppointmentModal = ({
                   {selectedClient.mail && <p className={s.search_secondary}>{selectedClient.mail}</p>}
                 </div>
               }
-              <Button fullWidth theme="tetrinary" onClick={() => setShowCreateClient(true)}>Создать нового клиента</Button>
+              { 
+                user.isAdmin &&
+                <Button fullWidth theme="tetrinary" onClick={() => setShowCreateClient(true)}>Добавить нового клиента</Button>
+              }
 
               { selectedClient &&
                 <div className={s.appointment_wrapper}>
                   <div className={s.input_group}>
-                    <Title title="Питомец"/>
+                    <Title title="Питомец" required/>
                     <Select
                       value={selectedPet || ''}
                       onChange={(e: any) => {setSelectedPet(e.target.value)}}
@@ -380,9 +394,9 @@ export const AppointmentModal = ({
                         ))
                       }
                     </Select>
-                  </div>
+                  </div>  
                   {
-                    selectedPet && pets?.map((pet) => {
+                    (selectedPet && selectedPet != 0) ? pets?.map((pet) => {
                       if (pet.id === selectedPet) {
                         return(
                           <div className={s.client_block}>
@@ -392,11 +406,15 @@ export const AppointmentModal = ({
                           </div>
                         )
                       }
-                    })
+                    }) : ""
                   }
-                  <Button fullWidth theme="tetrinary" onClick={() => setShowCreatePet(true)}>Создать нового питомца</Button>
+                  <Button fullWidth theme="tetrinary" onClick={() => setShowCreatePet(true)}>Добавить нового питомца</Button>
                 </div>
               }
+              <div className={s.input_group}>
+                <Title title="Комментарий" />
+                <Input value={comment} onChange={setComment} />
+              </div>  
             </div>
           </div>
           {(previousAppointments && previousAppointments.length > 0 && !isMobile) &&
@@ -436,8 +454,8 @@ export const AppointmentModal = ({
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {mode === "create" && <Button fullWidth size="big" onClick={() => {
           newReception()
-        }}>Создать</Button>}
-        {mode === "update" && user.isAdmin && <Button fullWidth size="big" onClick={() => {
+        }}>Добавить</Button>}
+        {mode === "update" && <Button fullWidth size="big" onClick={() => {
           updReception()
         }}>Сохранить</Button>}
       </ModalFooter>

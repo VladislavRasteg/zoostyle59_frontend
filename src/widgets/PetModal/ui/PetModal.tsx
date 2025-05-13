@@ -12,13 +12,13 @@ import {PhoneInput} from "@/shared/PhoneInput"
 import {toast} from "react-toastify"
 import {IAppointment, IClient, IPet} from "@/interfaces/interfaces"
 import {Scrollbar} from "react-scrollbars-custom"
-import { createClient, deleteClient, getOneClient, updateClient } from "@/http/clientAPI"
 import { format } from "date-fns"
 import { ru } from "date-fns/locale"
 import { createPet, deletePet, getOnePet, updatePet } from "@/http/petsAPI"
 import { MenuItem, Select } from "@/shared/Select"
 import { getAllClients } from "@/http/clientsAPI"
 import { ClientModal } from "@/widgets/ClientModal"
+import { CatBreeds, DogBreeds } from "./consts"
 
 interface IModalProps {
   show: boolean
@@ -32,11 +32,15 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
 
   const [name, setName] = useState(pet?.name || "");
   const [sex, setSex] = useState(pet?.sex || "");
+  const [type, setType] = useState(pet?.type || "");
   const [breed, setBreed] = useState(pet?.breed || "");
   const [showCreateClient, setShowCreateClient] = useState(false);
   const [feautures, setFeautures] = useState(pet?.feautures || "");
   const [searchClient, setSearchClient] = useState("");
   const [searchResult, setSearchResult] = useState<IClient[]>()
+  
+  const [breedSearchResult, setBreedSearchResult] = useState<string[]>()
+  
   const [selectedClient, setSelectedClient] = useState<IClient | undefined>(pet?.client);
   const [clientId, setClientId] = useState(pet?.clientId);
   const [dob, setDob] = useState<Date | undefined>(pet?.birth ? new Date(pet.birth) : undefined);
@@ -74,6 +78,29 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
       setSearchClient("")
     }
 
+    const selectBreedHandler = (text: string) => {
+      setBreedSearchResult([])
+      setBreed(text)
+    }
+
+  const searchBreedHandler = (text: string) => {
+    if(text.length > 0){
+      let searchArray: string[] = []
+      if(type === 'Кошка') {
+        searchArray = CatBreeds
+      } else {
+        searchArray = DogBreeds
+      }
+  
+      setBreedSearchResult(searchArray.filter(element => element.toLowerCase().includes(text.toLocaleLowerCase())))
+    } else {
+      setBreedSearchResult([])
+    }
+    
+    setBreed(text)
+
+  }
+
 
   const deleteClientHandler = () => {
     if(pet && pet.id){
@@ -91,8 +118,8 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
   }
 
   const createPetHandler = () => {
-    if (name && breed && selectedClient) {
-      createPet(name, sex, dob, breed, feautures, selectedClient.id)
+    if (name && breed && type && selectedClient) {
+      createPet(name, sex, dob, type, breed, feautures, selectedClient.id)
       .then((data: any) => {
         toast.success('Питомец добавлен')
         onClose(data.data)
@@ -106,10 +133,10 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
   }
 
   const updatePetHandler = () => {
-    if (pet?.id && name && breed && selectedClient) {
-      updatePet(pet?.id, name, sex, dob, breed, feautures, selectedClient.id)
+    if (pet?.id && name && breed && type && selectedClient) {
+      updatePet(pet?.id, name, sex, dob, type, breed, feautures, selectedClient.id)
       .then((data: any) => {
-        toast.success('Питомец обновлен')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -177,7 +204,45 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
                   {selectedClient.mail && <p className={s.search_secondary}>{selectedClient.mail}</p>}
                 </div>
               }
-              <Button fullWidth theme="tetrinary" onClick={() => setShowCreateClient(true)}>Создать нового клиента</Button>
+              <Button fullWidth theme="tetrinary" onClick={() => setShowCreateClient(true)}>Добавить нового клиента</Button>
+            <div className={s.input_group}>
+              <Title title="Тип" required/>
+              <Select
+                value={type || ''}
+                onChange={(e: any) => setType(e.target.value)}
+              >
+                <MenuItem key={"Кошка"} value={"Кошка"}>
+                      Кошка
+                </MenuItem>
+                <MenuItem key={"Собака"} value={"Собака"}>
+                      Собака
+                </MenuItem>
+              </Select>
+            </div>
+            {
+              type != '' && 
+              <div className={s.input_group}>
+                <Title title="Порода" required/>
+                <div className={s.search_client}>
+                  <Input placeholder="Порода" offAutoComplite value={breed} onChange={searchBreedHandler}/>
+                  {
+                      breedSearchResult && breedSearchResult.length > 0 &&
+                        <div className={s.search_results}>
+                            <div className={s.outside_click_handler} onClick={() => setBreedSearchResult([])}></div>
+                          {
+                            breedSearchResult.map((element, index) =>
+                              <div className={s.search_result} key={index} onClick={() => {
+                                selectBreedHandler(element)
+                              }}>
+                                <p className={s.search_name}>{element}</p>
+                              </div>
+                            )
+                          }
+                        </div>
+                    }
+                </div>
+              </div>
+            }
             <div className={s.input_group}>
               <Title title="Пол" required/>
               <Select
@@ -191,10 +256,6 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
                       Самка
                 </MenuItem>
               </Select>
-            </div>
-            <div className={s.input_group}>
-              <Title title="Порода" required/>
-              <Input placeholder="Порода" offAutoComplite value={breed} onChange={setBreed}/>
             </div>
             <div className={s.input_group}>
               <Title title="Особенности"/>
@@ -242,7 +303,7 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {!pet && <Button fullWidth size="big" onClick={() => {
           createPetHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {pet && <Button fullWidth size="big" onClick={() => {
           updatePetHandler()
         }}>Сохранить</Button>}

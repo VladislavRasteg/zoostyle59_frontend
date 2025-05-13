@@ -12,13 +12,13 @@ export const getOnePet = async (id: any) =>{
     return {data}
 }
 
-export const createPet = async (name: string, sex: string, birth: Date | undefined, breed: string, feautures: string, clientId: number) => {
-    const {data} = await $authHost.post('api/pet', {name, sex, birth, breed, feautures, clientId})
+export const createPet = async (name: string, sex: string, birth: Date | undefined, type: string, breed: string, feautures: string, clientId: number) => {
+    const {data} = await $authHost.post('api/pet', {name, sex, birth, type, breed, feautures, clientId})
     return {data}
 }
 
-export const updatePet = async (id: any, name: string, sex: string, birth: Date | undefined, breed: string, feautures: string, clientId: number) => {
-    const {data} = await $authHost.put('api/pet/' + id, {name, sex, birth, breed, feautures, clientId})
+export const updatePet = async (id: any, name: string, sex: string, birth: Date | undefined, type: string, breed: string, feautures: string, clientId: number) => {
+    const {data} = await $authHost.put('api/pet/' + id, {name, sex, birth, type, breed, feautures, clientId})
     return {data}
 }
 

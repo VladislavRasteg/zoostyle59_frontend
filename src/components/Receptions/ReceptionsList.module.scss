@@ -102,11 +102,8 @@
 .input_and_button{
     display: flex;
     flex-direction: row;
+    min-width: 300px;
     gap: 8px;
-    padding: 8px;
-    background: rgba(67, 88, 117, 0.02);
-    border-radius: 8px;
-    border: 1px solid rgba(67, 88, 117, 0.22);
 }
 
 .buttonsWrapper{
@@ -120,9 +117,33 @@
 .buttonsGroup{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    width: 600px;
     gap: 20px;
     align-items: center;
+}
+
+.button{
+    height: 44px;
+}
+
+.trb{
+    border-bottom: 1px solid $border_color;
+    padding: 16px 22px 16px 22px;
+}
+.tdb {
+    padding: 16px 22px;
+}
+.trb:hover{
+    background: rgba(67, 88, 117, 0.05);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.input_group{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
 }
 
 .fieldsRow{

@@ -100,13 +100,13 @@ export const AbonementForm = ({
                         </div>
                         {
                         !selectedClient ?
-                            user.isAdmin && <Button theme="secondary" fullWidth onClick={() => setShowCreateClient(true)}>Создать клиента</Button>
+                            user.isAdmin && <Button theme="secondary" fullWidth onClick={() => setShowCreateClient(true)}>Добавить клиента</Button>
                           :
                           <div className={s.appointment_wrapper}>
                             <div className={s.client_block_wrapper}>
                                 <div className={s.client_block}>
                                     <p className={s.search_name}>
-                                        {selectedClient.surname} {selectedClient.first_name} {selectedClient.middle_name}
+                                        {selectedClient.surname} {selectedClient.firstName} {selectedClient.middleName}
                                     </p>
                                 {selectedClient.phone && <p className={s.search_secondary}>{selectedClient.phone}</p>}
                                 {selectedClient.mail && <p className={s.search_secondary}>{selectedClient.mail}</p>}
@@ -123,7 +123,7 @@ export const AbonementForm = ({
                                         </div>
                                 }
                                 {user.isAdmin &&
-                                    <Button fullWidth theme="tetrinary" onClick={() => setShowCreateClient(true)}>Создать нового клиента</Button>
+                                    <Button fullWidth theme="tetrinary" onClick={() => setShowCreateClient(true)}>Добавить нового клиента</Button>
                                 }
                             </div>
                             {selectedClient.activeAbonement &&

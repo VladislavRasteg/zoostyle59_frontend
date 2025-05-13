@@ -84,7 +84,7 @@ export const SellModal = ({show, onClose, sell}: IModalProps) => {
     if(sell && sell.id){
       deleteSell(sell.id)
       .then(() => {
-        toast.success('Покупка удалена')
+        toast.success('Продажа удалена')
         onClose()
       })
       .catch(e => {
@@ -156,7 +156,7 @@ export const SellModal = ({show, onClose, sell}: IModalProps) => {
     if (sum && sellProducts && sellProducts.length > 0 && selectedEmployee) {
       createSell(selectedEmployee, selectedClient?.id || 0, sum, sellProducts)
       .then((data: any) => {
-        toast.success('Покупка добавлена')
+        toast.success('Продажа добавлена')
         onClose()
       })
       .catch(e => {
@@ -171,7 +171,7 @@ export const SellModal = ({show, onClose, sell}: IModalProps) => {
     if (sell?.id && sum && sellProducts && sellProducts.length > 0 && selectedEmployee) {
       updateSell(sell.id, selectedEmployee, selectedClient?.id || 0, sum, sellProducts)
       .then((data: any) => {
-        toast.success('Изменения сохранены')
+        toast.success('Данные изменены')
         onClose()
       })
       .catch(e => {
@@ -309,7 +309,7 @@ export const SellModal = ({show, onClose, sell}: IModalProps) => {
         <Button theme="border" size="big" onClick={() => onClose()} fullWidth>Закрыть</Button>
         {!sell && <Button fullWidth size="big" onClick={() => {
           createSellHandler()
-        }}>Создать</Button>}
+        }}>Добавить</Button>}
         {sell && <Button fullWidth size="big" onClick={() => {
           updateSellHandler()
         }}>Сохранить</Button>}
