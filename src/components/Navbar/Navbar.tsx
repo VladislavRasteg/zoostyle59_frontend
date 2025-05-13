@@ -12,6 +12,9 @@ import {ReactComponent as CalendarIcon} from "./assets/calendar.svg"
 import {ReactComponent as DoctorsIcon} from "./assets/doctors.svg"
 import {ReactComponent as UsersIcon} from "./assets/users.svg"
 import {ReactComponent as ProceduresIcon} from "./assets/procedures.svg"
+import {ReactComponent as SellIcon} from "./assets/sell.svg"
+import {ReactComponent as PurchaseIcon} from "./assets/purchase.svg"
+import {ReactComponent as ProductsIcon} from "./assets/products.svg"
 import {Button} from "react-bootstrap";
 import {ReactComponent as ZoostyleLogo} from '../../assets/logo.svg';
 import {USERS_ROUTE} from "../../utils/consts";
@@ -90,6 +93,12 @@ const Navbar = observer(() => {
               <NavbarLink link='/doctors' name='Сотрудники' icon={<DoctorsIcon/>} close={setShowBurgerMenu}/>)}
             {user.isAdmin && (
               <NavbarLink link='/procedures' name='Услуги' icon={<ProceduresIcon/>} close={setShowBurgerMenu}/>)}
+            {user.isAdmin && (
+              <NavbarLink link='/sells' name='Продажи' icon={<SellIcon/>} close={setShowBurgerMenu}/>)}
+            {user.isAdmin && (
+              <NavbarLink link='/products' name='Товары' icon={<ProductsIcon/>} close={setShowBurgerMenu}/>)}
+            {user.isAdmin && (
+              <NavbarLink link='/purchases' name='Закупки' icon={<PurchaseIcon/>} close={setShowBurgerMenu}/>)}
             <Button variant="outline-danger" onClick={logOut} className={s.mobileQuitButton}>Выход</Button>
           </div>
         </div>

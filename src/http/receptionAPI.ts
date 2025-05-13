@@ -1,7 +1,7 @@
 import {$authHost, $host} from "./index";
 
-export const createReception = async (date: string, time: string, endTime: string, clientId: number, doctorId: number, procedures: object[], note:string, branchId: number, is_widget_appointment: boolean, sendEmailFor: null, polisOMS: boolean, polisOMSnumber: string, is_abonement_reception = false) => {
-    const {data} = await $authHost.post('api/receptions/add', {date, time, endTime, clientId, doctorId, procedures, note, branchId, is_widget_appointment, sendEmailFor, polisOMS, polisOMSnumber, is_abonement_reception})
+export const createReception = async (userId: number, clientId: number, date: string, time: string, endTime: string, note:string, petId: number, procedures: object[], sum: number) => {
+    const {data} = await $authHost.post('api/appointment', {userId, clientId, date, time, endTime, note, petId, procedures, sum})
     return "success!"
 }
 
@@ -14,12 +14,12 @@ export const getOneReception = async (id: any, branchId: number) =>{
     const {data} = await $authHost.get('api/receptions/'+id, {params: {branchId}})
     return {data}
 }
-export const deleteReception = async (id: any, branchId: number) =>{
-    const {data} = await $authHost.delete('api/receptions/delete?id='+id, {params: {branchId}})
+export const deleteReception = async (id: any) =>{
+    const {data} = await $authHost.delete('api/appointment/'+id)
     return {data}
 }
 
-export const updateReception = async (id: number, date: string, time: string, endTime: string, clientId: number, doctorId: number, procedures: object[], note:string, branchId: number) => {
-    const {data} = await $authHost.put('api/receptions/update?id=' + id, {date, time, endTime, clientId, procedures, doctorId, note, branchId})
+export const updateReception = async (id: number, userId: number, clientId: number, date: string, time: string, endTime: string, note:string, petId: number, procedures: object[], sum: number) => {
+    const {data} = await $authHost.put('api/appointment/' + id, {userId, clientId, date, time, endTime, note, petId, procedures, sum})
     return data
 }

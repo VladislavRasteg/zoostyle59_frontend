@@ -13,15 +13,15 @@ interface DoctorReceptionsProps {
     setCurrentReception: any,
     workDayMinutes: number,
     startTime: string
-    showAppointmentModalHandler: (client: IClient, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMS: string, isAbonement: boolean) => void
+    showAppointmentModalHandler: (client: IClient, propsSum: number, petId: number, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMS: string, isAbonement: boolean) => void
 }
 
 const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTime, showAppointmentModalHandler}: DoctorReceptionsProps) => {
 
     const receptionDuration = (Number(reception.endTime.slice(0, 2)) * 60 + Number(reception.endTime.slice(3, 5))) - (Number(reception.time.slice(0, 2)) * 60 + Number(reception.time.slice(3, 5)))
 
-    const receptionProcedures = reception.receptionProcedures.map((pecProc: any) => {
-        return (pecProc.procedure.name)
+    const receptionProcedures = reception.appointmentServices.map((pecProc: any) => {
+        return (pecProc.service.name)
     })
 
     const [isMobile, setIsMobile] = useState(Boolean)
@@ -47,7 +47,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                     {reception?.client &&
                         <>
                             <p style={{ marginTop: 0, marginBottom: 0, fontWeight: 400 }}>
-                                {reception.client.surname} {reception.client.first_name} {reception.client.middle_name}
+                                {reception.pet.breed} {reception.pet.name} | {reception.client.surname} {reception.client.firstName} {reception.client.middleName}
                             </p>
                             <p style={{marginTop: 2, marginBottom: 4, fontWeight: 400}}>{reception.client.phone}</p>
                         </>
@@ -110,7 +110,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                     onDragEnd={(e) => dragEndHandler(e, reception)}
                     onDrop={(e) => dropHandler(e, reception)}
 
-                    onClick={() => showAppointmentModalHandler(reception.client, reception.doctorId, reception.time, reception.endTime, reception.receptionProcedures.map((rp) => JSON.parse(JSON.stringify(rp.procedure))), reception.id, reception.date, reception?.polisOMS, reception.is_abonement_reception)}
+                    onClick={() => showAppointmentModalHandler(reception.client, reception.sum, reception.petId, reception.doctorId, reception.time, reception.endTime, reception.appointmentServices.map((rp) => JSON.parse(JSON.stringify(rp.service))), reception.id, reception.date, reception?.polisOMS, reception.is_abonement_reception)}
 
                     initial={{y: 50, opacity: 0.3}}
                     animate={{y: 0, opacity: 1}}
@@ -129,8 +129,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                 >
                     <div className={s.reception_body_small}>
                         <div className={s.reception_time}> {reception.time.slice(0, 5)} - {reception.endTime.slice(0, 5)}</div>
-                        {reception?.client && <>{reception.client.surname} {reception.client.first_name} {reception.client.middle_name}</>}
-                        {reception?.group && <p>Группа: {reception?.group?.name}</p>}
+                        <>{reception.pet.breed} {reception.pet.name} |  {reception.client.surname} {reception.client.firstName} {reception.client.middleName}</>
                     </div>
                 </motion.div>
             </OverlayTrigger>
@@ -150,7 +149,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                     onDragEnd={(e) => dragEndHandler(e, reception)}
                     onDrop={(e) => dropHandler(e, reception)}
 
-                    onClick={() => showAppointmentModalHandler(reception.client, reception.doctorId, reception.time, reception.endTime, reception.receptionProcedures.map((rp) => JSON.parse(JSON.stringify(rp.procedure))), reception.id, reception.date, reception?.polisOMS, reception.is_abonement_reception)}
+                    onClick={() => showAppointmentModalHandler(reception.client, reception.sum, reception.petId, reception.doctorId, reception.time, reception.endTime, reception.appointmentServices.map((rp) => JSON.parse(JSON.stringify(rp.service))), reception.id, reception.date, reception?.polisOMS, reception.is_abonement_reception)}
 
                     initial={{y: 50, opacity: 0.3}}
                     animate={{y: 0, opacity: 1}}
@@ -167,7 +166,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                         <div className={s.reception_time}> {reception.time.slice(0, 5)} - {reception.endTime.slice(0, 5)} </div>
                         {reception?.client &&
                             <p style={{marginTop: 4, marginBottom: 0, fontWeight: 400}}>
-                                {reception.client.surname} {reception.client.first_name} {reception.client.middle_name}
+                                {reception.pet.breed} {reception.pet.name} | {reception.client.surname} {reception.client.firstName} {reception.client.middleName}
                             </p>
                         }
                         {reception?.group &&
@@ -217,7 +216,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                     onDragEnd={(e) => dragEndHandler(e, reception)}
                     onDrop={(e) => dropHandler(e, reception)}
 
-                    onClick={() => showAppointmentModalHandler(reception.client, reception.doctorId, reception.time, reception.endTime, reception.receptionProcedures.map((rp) => JSON.parse(JSON.stringify(rp.procedure))), reception.id, reception.date, reception?.polisOMS, reception.is_abonement_reception)}
+                    onClick={() => showAppointmentModalHandler(reception.client, reception.sum, reception.petId, reception.doctorId, reception.time, reception.endTime, reception.appointmentServices.map((rp) => JSON.parse(JSON.stringify(rp.service))), reception.id, reception.date, reception?.polisOMS, reception.is_abonement_reception)}
 
                     initial={{y: 50, opacity: 0.3}}
                     animate={{y: 0, opacity: 1}}
@@ -237,7 +236,7 @@ const ReceptionCard = ({reception, setCurrentReception, workDayMinutes, startTim
                         </div>
                         {reception?.client &&
                           <p style={{marginTop: 4, marginBottom: 0, fontWeight: 400}}>
-                              {reception.client.surname} {reception.client.first_name} {reception.client.middle_name}
+                              {reception.pet.breed} {reception.pet.name} |  {reception.client.surname} {reception.client.firstName} {reception.client.middleName}
                           </p>
                         }
                         {reception?.group &&

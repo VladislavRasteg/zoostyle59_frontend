@@ -47,7 +47,7 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
   useEffect(() => {
     if(client && client.id){
       getOneClient(client.id, user.currentBranch?.id).then((data: any) => {
-        setPreviousAppointments(data.data.receptions)
+        setPreviousAppointments(data.data.appointments)
         setAbonement(data.data.client.activeAbonement)
       })
     }
@@ -163,7 +163,7 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
           </div>
           {(previousAppointments && previousAppointments.length > 0 && !isMobile) &&
               <div className={s.client_appointments}>
-                  <Title title="История посещений"/>
+                  <Title title="История записей клиента"/>
                   <Scrollbar>
                       <div className={s.appointments_list}>
                         {
@@ -171,15 +171,15 @@ export const ClientModal = ({show, onClose, client}: IModalProps) => {
                             return (
                               <div className={s.appointment} key={appointment.id}>
                                 <p className={s.appointment_date}>
-                                  {format(new Date(appointment.date), "dd MMMM", {locale: ru})} {appointment.time.slice(0, 5)}
+                                  {format(new Date(appointment.date), "dd MMMM", {locale: ru})} {appointment.time.slice(0, 5)} | {appointment.sum} ₽
                                 </p>
                                 <p className={s.appointment_employee_name}>
-                                  {appointment.doctor.surname} {appointment.doctor.first_name && appointment.doctor.first_name[0] + "."}{appointment.doctor.middle_name && appointment.doctor.middle_name[0] + "."}
+                                  {appointment.user.surname} {appointment.user.firstName && appointment.user.firstName[0] + "."}{appointment.user.middleName && appointment.user.middleName[0] + "."}
                                 </p>
                                 {
-                                  appointment.receptionProcedures.map((service) =>
-                                    <p className={s.appointment_procedure} key={service.id}>
-                                      {service.procedure.name} <span>{service.procedure.price}₽</span>
+                                  appointment.appointmentServices.map((service) =>
+                                    <p className={s.appointment_date} key={service.id}>
+                                      {service.service.name} <span>{service.service.price}₽</span>
                                     </p>
                                   )
                                 }

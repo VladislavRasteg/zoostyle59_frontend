@@ -40,10 +40,12 @@ const Content = observer(() => {
   const [appointmentId, setAppointmentId] = useState<number>()
   const [polisOMSnumber, setPolisOMSnumber] = useState<string>('')
   const [isAbonement, setIsAbonement] = useState(false)
-
+  
+  const [propsSum, setPropsSum] = useState<number>()
+  const [petId, setPetId] = useState<number>()
   const [loading, setLoading] = useState(true)
   const [client, setClient] = useState<IClient>()
-  const [doctor, setDoctor] = useState<IEmployee>()
+  const [doctor, setDoctor] = useState<Partial<IEmployee>>()
   const [date, setDate] = useState("")
   const [receptionTime, setReceptionTime] = useState("")
   const [receptionEndTime, setReceptionEndTime] = useState("")
@@ -66,7 +68,7 @@ const Content = observer(() => {
     client: "",
     clientId: -1,
     doctorId: -1,
-    receptionProcedures: []
+    appointmentServices: []
   })
 
   const [initialTime, setInitialTime] = useState('')
@@ -133,12 +135,21 @@ const Content = observer(() => {
         })
 
         calendar.setDoctors(users)
+
+        // const doctors2 =  calendar.selectedDoctors && calendar.selectedDoctors.map((doctor: any) => {
+        //   const findedDoctor = users.find((doc: any) => doc.id === doctor.id)
+        //   return findedDoctor
+        // })
+
+        // console.log(doctors)
+        
         calendar.setSelectedDoctors(
           calendar.selectedDoctors && calendar.selectedDoctors.map((doctor: any) => {
-            const findedDoctor = doctors.find((doc: any) => doc.id === doctor.id)
+            const findedDoctor = users.find((doc: any) => doc.id === doctor.id)
             return findedDoctor
           })
         )
+        
 
         setProcedures(data.data.services)
 
@@ -148,35 +159,6 @@ const Content = observer(() => {
         let _realStartTime = "08:00"
         let _realEndTime = "22:00"
         const day = selectedDate.getDay()
-        // if (day === 1) {
-        //   setIsDayWeekend(!user.currentBranch?.isMon)
-        //   _realStartTime = user.currentBranch?.monFrom
-        //   _realEndTime = user.currentBranch?.monTo
-        // } else if (day === 2) {
-        //   setIsDayWeekend(!user.currentBranch?.isTue)
-        //   _realStartTime = user.currentBranch?.tueFrom
-        //   _realEndTime = user.currentBranch?.tueTo
-        // } else if (day === 3) {
-        //   setIsDayWeekend(!user.currentBranch?.isWed)
-        //   _realStartTime = user.currentBranch?.wedFrom
-        //   _realEndTime = user.currentBranch?.wedTo
-        // } else if (day === 4) {
-        //   setIsDayWeekend(!user.currentBranch?.isThu)
-        //   _realStartTime = user.currentBranch?.thuFrom
-        //   _realEndTime = user.currentBranch?.thuTo
-        // } else if (day === 5) {
-        //   setIsDayWeekend(!user.currentBranch?.isFri)
-        //   _realStartTime = user.currentBranch?.friFrom
-        //   _realEndTime = user.currentBranch?.friTo
-        // } else if (day === 6) {
-        //   setIsDayWeekend(!user.currentBranch?.isSat)
-        //   _realStartTime = user.currentBranch?.satFrom
-        //   _realEndTime = user.currentBranch?.satTo
-        // } else if (day === 0) {
-        //   setIsDayWeekend(!user.currentBranch?.isSun)
-        //   _realStartTime = user.currentBranch?.sunFrom
-        //   _realEndTime = user.currentBranch?.sunTo
-        // }
 
         setRealStartTime(_realStartTime)
         setRealEndTime(_realEndTime)
@@ -235,6 +217,7 @@ const Content = observer(() => {
 
 
   const handleClose = () => {
+    console.log("close")
     setClient(undefined)
     setDoctor(undefined)
     setDate("")
@@ -244,6 +227,9 @@ const Content = observer(() => {
     setNote("")
     setShow(false)
     setSearchResult([])
+    setPropsSum(0)
+    setPetId(undefined)
+    setIsNewReception(true)
   };
 
   const handleShowUpdateTime = (initial_time: string, new_time: string, reception: any, doctor: any) => {
@@ -317,10 +303,12 @@ const Content = observer(() => {
 
   const TimeDiff = currentTime.getHours() * 60 + currentTime.getMinutes() - Number(startWorkTime.slice(0, 2)) * 60 + Number(startWorkTime.slice(3, 5))
 
-  const showAppointmentModalHandler = (client: IClient, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMSnumber: string, isAbonement = false) => {
+  const showAppointmentModalHandler = (client: IClient, propsSum: number, petId: number, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMSnumber: string, isAbonement = false) => {
     setShow(true)
     setClient(client)
     setDoctor({id: employee})
+    setPropsSum(propsSum)
+    setPetId(petId)
     setDate(propsDate)
     setReceptionTime(startTime)
     setReceptionEndTime(endTime)
@@ -388,6 +376,8 @@ const Content = observer(() => {
               show={show}
               employeeId={doctor?.id}
               mode="create"
+              propsSum={propsSum}
+              petId={petId}
               startTime={receptionTime}
               endTime={receptionEndTime}
               onClose={handleClose}

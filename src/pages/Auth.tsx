@@ -27,7 +27,7 @@ const Auth = observer(() => {
     const navigate  = useNavigate()
 
     useEffect(() => {
-        document.title = 'Зоостиль | Вход в систему';
+        document.title = 'Зоостиль | Авторизация';
     }, []);
 
     useEffect(()=>{
@@ -127,7 +127,7 @@ const Auth = observer(() => {
             <Container className="d-flex h-100 w-100 justify-content-center align-items-center" style={{width: window.innerWidth - 328}}>
                 <Card style={{width: '420px', boxSizing:'border-box', border: 'none', backgroundColor: "transparent"}} className="rounded-4 d-flex flex-column align-items-start">
                     { password_changed === 'true' && <h3 style={{fontFamily: "Inter", fontSize: '32px'}}>Пароль обновлён.</h3>}
-                    <h3 style={{fontFamily: "Inter", fontSize: '32px'}}>Вход в систему</h3>
+                    <h3 style={{fontFamily: "Inter", fontSize: '32px'}}>Авторизация</h3>
                     <Form className='d-flex w-100 flex-column'>
                         <Form.Control
                             name={'login'}

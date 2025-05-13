@@ -18,9 +18,9 @@ export const findEmail = async (login: string) =>{
     return data
 }
 
-export const listUsers = async (page=1, limit=20, branchId: number) =>{
+export const listUsers = async (page=1, limit=20) =>{
     const {data} = await $authHost.get('api/user/list', {params: {
-        page, limit, branchId
+        page, limit
     }})
     return {data}
 }

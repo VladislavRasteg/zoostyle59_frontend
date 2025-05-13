@@ -18,6 +18,9 @@ import GroupsStore from "@/store/GroupsStore";
 import TenantStore from "@/store/TenantStore";
 import AbonementsStore from './store/AbonementsStore';
 import AbonementTypesStore from './store/AbonementTypesStore';
+import ProductsStore from './store/ProductsStore';
+import SellsStore from './store/SellsStore';
+import PurchasesStore from './store/PurchasesStore';
 
 export const Context = createContext(null as any)
 
@@ -40,6 +43,9 @@ root.render(
       positions: new PositionsStore(),
       widget: new WidgetStore(),
       tenant: new TenantStore(),
+      products: new ProductsStore(),
+      sells: new SellsStore(),
+      purchases: new PurchasesStore(),
   }}>
     <App />
   </Context.Provider>

@@ -20,7 +20,7 @@ interface DoctorReceptionsProps {
   currentReception: any;
   setCurrentReception: any;
   isDayWeekend: boolean;
-  showAppointmentModalHandler: (client: IClient, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMS: string, isAbonement: boolean) => void
+  showAppointmentModalHandler: (client: IClient, propsSum: number, petId: number, employee: number, startTime: string, endTime: string, services: IService[], appointmentId: number, propsDate: string, polisOMS: string, isAbonement: boolean) => void
   refetchCalendar: () => void;
 }
 

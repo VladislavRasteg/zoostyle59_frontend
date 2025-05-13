@@ -10,6 +10,7 @@ import {classNames} from "../../shared/lib/classNames/classNames";
 import { IPet } from "@/interfaces/interfaces";
 import { Button } from "@/shared/Button";
 import { PetModal } from "@/widgets/PetModal";
+import { formatAge } from "@/utils/getAge"
 
 const PetsList = observer(() => {
     const navigate  = useNavigate()
@@ -93,7 +94,7 @@ const PetsList = observer(() => {
                                         <td className={s.tdb}>{pet.name}</td>
                                         <td className={s.tdb}>{pet.breed}</td>
                                         <td className={s.tdb}>{pet.sex}</td>
-                                        <td className={s.tdb}>{pet.birth && (pet.birth).split("-").reverse().join(".")}</td>
+                                        <td className={s.tdb}>{pet.birth && formatAge(new Date(pet.birth))}</td>
                                         <td className={s.tdb}>{`${pet.client?.surname}${pet.client?.firstName ? ' '+pet.client?.firstName : ''}`}</td>
                                         <td className={s.tdb}>{pet.appointmentsTotal} ₽</td>
                                     </tr>

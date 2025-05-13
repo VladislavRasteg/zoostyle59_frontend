@@ -1,3 +1,6 @@
+export const PRODUCTS_ROUTE = '/products'
+export const SELLS_ROUTE = '/sells'
+export const PURCHASES_ROUTE = '/purchases'
 export const USERS_ROUTE = '/users'
 export const ABONEMENTS_ROUTE = '/abonements'
 export const LOGIN_ROUTE = '/login'

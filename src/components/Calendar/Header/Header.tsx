@@ -58,7 +58,7 @@ const Header = observer(() => {
     
     return (
         <div className={s.header}>
-            <p className={s.date}>{calendar.selectedDate.slice(8)} {monthNames[month-1]} {!isMobile && `, ${receptionsCount} сеансов`}</p>
+            <p className={s.date}>{calendar.selectedDate.slice(8)} {monthNames[month-1]} {!isMobile && `, ${receptionsCount} записи`}</p>
             {
                 !isMobile
                 ?

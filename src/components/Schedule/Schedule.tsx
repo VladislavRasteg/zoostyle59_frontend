@@ -44,7 +44,7 @@ const Schedule = observer(() => {
     const [isSun, setIsSun] = useState(true)
 
     useEffect(() => {
-        listDoctors(doctors.page, 20, user.currentBranch?.id).then((data: any) => {
+        listDoctors(doctors.page, 20).then((data: any) => {
             doctors.setDoctors(data.data.doctors.rows)
             doctors.setTotalCount(data.data.doctors.count)
             setIsEdited(false)

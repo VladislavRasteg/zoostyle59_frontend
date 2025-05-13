@@ -48,7 +48,7 @@ const Users = observer(() => {
     }, [loginError])
 
     useEffect(() => {
-        listUsers(users.page, 20, user.currentBranch?.id).then((data: any) => {
+        listUsers(users.page, 20).then((data: any) => {
             users.setUsers(data.data)
             users.setTotalCount(data.data.length)
         })

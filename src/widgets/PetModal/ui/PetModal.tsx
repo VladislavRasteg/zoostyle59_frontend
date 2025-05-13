@@ -47,7 +47,7 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
   useEffect(() => {
     if(pet && pet.id){
       getOnePet(pet.id).then((data: any) => {
-        setPreviousAppointments(data.data.receptions)
+        setPreviousAppointments(data.data.appointments)
       })
     }
   }, [updated])
@@ -142,7 +142,7 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
               <Input placeholder="Кличка" offAutoComplite value={name} onChange={setName}/>
             </div>
             <div className={s.input_group}>
-                <Title title="Фамилия клиента"/>
+                <Title title="Клиент"/>
                 <div className={s.search_client}>
                   <Input offAutoComplite placeholder="Начните вводить фамилию" value={searchClient}
                         onChange={setSearchClient}/>
@@ -207,7 +207,7 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
           </div>
           {(previousAppointments && previousAppointments.length > 0 && !isMobile) &&
               <div className={s.client_appointments}>
-                  <Title title="История посещений"/>
+                  <Title title="История записей питомца"/>
                   <Scrollbar>
                       <div className={s.appointments_list}>
                         {
@@ -215,14 +215,14 @@ export const PetModal = ({show, onClose, pet}: IModalProps) => {
                             return (
                               <div className={s.appointment} key={appointment.id}>
                                 <p className={s.appointment_date}>
-                                  {format(new Date(appointment.date), "dd MMMM", {locale: ru})} {appointment.time.slice(0, 5)}
+                                  {format(new Date(appointment.date), "dd MMMM", {locale: ru})} {appointment.time.slice(0, 5)} | {appointment.sum} ₽
                                 </p>
                                 <p className={s.appointment_employee_name}>
                                   {appointment.user.surname} {appointment.user.firstName && appointment.user.firstName[0] + "."}{appointment.user.middleName && appointment.user.middleName[0] + "."}
                                 </p>
                                 {
                                   appointment.appointmentServices.map((service) =>
-                                    <p className={s.appointment_procedure} key={service.id}>
+                                    <p className={s.appointment_date} key={service.id}>
                                       {service.service.name} <span>{service.service.price}₽</span>
                                     </p>
                                   )

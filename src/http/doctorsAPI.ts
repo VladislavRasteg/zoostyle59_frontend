@@ -1,9 +1,9 @@
 import { IService } from "@/interfaces/interfaces";
 import {$authHost, $host} from "./index";
 
-export const listDoctors = async (page=1, limit=20, branchId: number) =>{
+export const listDoctors = async (page=1, limit=20) =>{
     const {data} = await $authHost.get('api/user', {params: {
-            page, limit, branchId
+            page, limit
         }})
     return {data}
 }

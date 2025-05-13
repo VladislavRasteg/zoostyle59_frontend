@@ -22,7 +22,7 @@ const DoctorsList = observer(() => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        listDoctors(doctors.page, 20, user.currentBranch?.id).then((data: any) => {
+        listDoctors(doctors.page, 20).then((data: any) => {
             doctors.setDoctors(data.data.rows)
             doctors.setTotalCount(data.data.count)
             setIsDoctorEdited(false)

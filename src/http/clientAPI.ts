@@ -1,7 +1,7 @@
 import {$authHost, $host} from "./index";
 
 export const getOneClient = async (id: any, branchId: number) =>{
-    const {data} = await $authHost.get('api/clients/'+id, {params: {branchId}})
+    const {data} = await $authHost.get('api/client/'+id, {params: {branchId}})
     return {data}
 }
 

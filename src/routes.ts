@@ -39,6 +39,9 @@ import {
     ABONEMENTS_ROUTE,
     BILLING_ROUTE,
     PETS_ROUTE,
+    PRODUCTS_ROUTE,
+    SELLS_ROUTE,
+    PURCHASES_ROUTE
 } from './utils/consts';
 import SelectServices from './components/Widget/SelectServices/SelectServices';
 import SelectEmployee from './components/Widget/SelectDoctor/SelectEmployee';
@@ -51,6 +54,9 @@ import AbonementTypes from './pages/AbonementTypes';
 import Abonements from './pages/Abonements';
 import { BillingPage } from './pages/BillingPage';
 import Pets from './pages/Pets';
+import Products from './pages/Products';
+import Sells from './pages/Sells';
+import Purchases from './pages/Purchases';
 
 
 
@@ -133,6 +139,18 @@ export const adminRoutes = [
     {
         path: PETS_ROUTE,
         Component: Pets
+    },
+    {
+        path: PRODUCTS_ROUTE,
+        Component: Products
+    },
+    {
+        path: SELLS_ROUTE,
+        Component: Sells
+    },
+    {
+        path: PURCHASES_ROUTE,
+        Component: Purchases
     },
 ]
 

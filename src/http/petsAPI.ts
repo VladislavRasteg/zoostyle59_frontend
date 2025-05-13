@@ -1,8 +1,8 @@
 import {$authHost, $host} from "./index";
 
-export const getAllPets = async (page=1, limit=10, search="") =>{
+export const getAllPets = async (page=1, limit=10, search="", clientId?: number) =>{
     const {data} = await $authHost.get('api/pet/', {params: {
-            page, limit, search
+            page, limit, search, clientId
         }})
     return {data}
 }

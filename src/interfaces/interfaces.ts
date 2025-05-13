@@ -44,6 +44,31 @@ export interface IPet {
     isDeleted: boolean;
 }
 
+export interface IProduct {
+    id: number;
+    name: string;
+    price: number;
+    count: number;
+    isForService: boolean;
+}
+
+export interface ISell {
+    id: number;
+    user: IEmployee;
+    saleProducts: {product: IProduct, count: number}[]
+    client?: IClient;
+    sum: number;
+}
+
+export interface IPurchase {
+    id: number;
+    user: IEmployee;
+    purchaseProducts: {product: IProduct, count: number}[]
+    note: string;
+    sum: number;
+}
+
+
 export interface IPosition{
     id: number;
     name: string;
@@ -74,13 +99,16 @@ export interface IEmployee {
 export interface IAppointment {
     id: number;
     doctorId: number;
+    petId: number;
+    sum: number;
     date: string;
     time: string;
     endTime: string;
-    doctor: IEmployee;
+    user: IEmployee;
     client: IClient;
+    pet: IPet;
     group: IGroup;
-    receptionProcedures: [{id: number, procedure: IService}];
+    appointmentServices: [{id: number, service: IService}];
     polisOMS: string;
     is_abonement_reception: boolean;
 }
